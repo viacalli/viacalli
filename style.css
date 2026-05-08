@@ -49,7 +49,6 @@ nav {
   height: 32px;
   width: auto;
   display: block;
-  filter: brightness(0) saturate(100%) invert(68%) sepia(12%) saturate(600%) hue-rotate(220deg) brightness(95%);
 }
 
 .nav-logo span {
