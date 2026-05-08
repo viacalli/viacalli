@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Viacalli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-page {
+  padding-top: 7rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 5rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  padding-bottom: 6rem;
+  align-items: start;
+}
+
+/* ── LEFT ── */
+.contact-left {
+  padding-top: 3rem;
+  position: sticky;
+  top: 7rem;
+}
+
+.contact-left h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.contact-left h1 span { color: var(--lav-dark); }
+
+.contact-left > p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.85;
+  max-width: 38ch;
+  margin-bottom: 3rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-info-icon {
+  width: 36px; height: 36px;
+  background: rgba(191,154,200,0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-info-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.contact-info-text a {
+  color: var(--lav-dark);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-info-text a:hover { text-decoration: underline; }
+
+/* ── FORM ── */
+.contact-right {
+  padding-top: 3rem;
+}
+
+.selected-tour-banner {
+  background: rgba(191,154,200,0.1);
+  border: 1px solid rgba(191,154,200,0.3);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.selected-tour-banner.hidden { display: none; }
+
+.banner-text {
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+.banner-text strong { color: var(--lav-dark); }
+
+.banner-clear {
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.banner-clear:hover { color: var(--ink); }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+}
+
+.field input,
+.field textarea,
+.field select {
+  background: var(--white);
+  border: 1.5px solid rgba(191,154,200,0.25);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.field input::placeholder,
+.field textarea::placeholder { color: #bbb; }
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--lav-dark);
+  box-shadow: 0 0 0 3px rgba(191,154,200,0.15);
+}
+
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23BF9AC8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.field select option { color: var(--ink); }
+
+.field textarea { resize: vertical; min-height: 100px; }
+
+.form-submit-btn {
+  background: var(--lav-dark);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-submit-btn:hover {
+  box-shadow: 0 6px 24px rgba(191,154,200,0.4);
+  transform: translateY(-1px);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.form-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Success state */
+.success-message {
+  display: none;
+  background: rgba(191,154,200,0.1);
+  border: 1px solid rgba(191,154,200,0.3);
+  border-radius: 18px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.success-message.visible { display: block; }
+
+.success-message .success-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.success-message h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+}
+
+.success-message p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .contact-page { grid-template-columns: 1fr; padding: 5rem 1.5rem 4rem; gap: 2.5rem; }
+  .contact-left { position: static; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Via<span>calli</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tours.html">Tours</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="contact-page">
+
+  <div class="contact-left">
+    <span class="eyebrow">Get in touch</span>
+    <h1>Let's plan your <span>experience</span></h1>
+    <p>Tell us about your group and what you're curious about. We'll write back within 48 hours to find the right tour for you.</p>
+
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <div class="contact-info-icon">✉️</div>
+        <div class="contact-info-text">
+          <a href="mailto:hello@viacalli.com">hello@viacalli.com</a>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">📍</div>
+        <div class="contact-info-text">Based in Mexico City, CDMX</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">🌐</div>
+        <div class="contact-info-text">Tours available in English & Spanish</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-icon">⏱</div>
+        <div class="contact-info-text">We reply within 48 hours</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right">
+
+    <!-- Tour preselect banner (shown when coming from a tour page) -->
+    <div class="selected-tour-banner hidden" id="tourBanner">
+      <div class="banner-text">Inquiring about: <strong id="bannerTourName"></strong></div>
+      <button class="banner-clear" onclick="clearTourSelection()">Clear selection</button>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-message" id="successMsg">
+      <div class="success-icon">✦</div>
+      <h3>Message received!</h3>
+      <p>Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
+    </div>
+
+    <!-- FORM -->
+    <form
+      class="contact-form"
+      id="contactForm"
+      action="https://formspree.io/f/hello@viacalli.com"
+      method="POST"
+    >
+      <div class="form-row">
+        <div class="field">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+        </div>
+        <div class="field">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="field">
+        <label for="tour">Experience of interest</label>
+        <select id="tour" name="tour">
+          <option value="">— Select a tour (optional) —</option>
+          <option value="Mexican Modernism — Architecture">Mexican Modernism — Architecture</option>
+          <option value="The Wall as Manifesto — Muralism">The Wall as Manifesto — Muralism</option>
+          <option value="Present Tense — Contemporary Art">Present Tense — Contemporary Art</option>
+          <option value="Custom itinerary">Custom itinerary</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="groupSize">Group size</label>
+          <input type="text" id="groupSize" name="groupSize" placeholder="e.g. 4 people">
+        </div>
+        <div class="field">
+          <label for="dates">Preferred dates</label>
+          <input type="text" id="dates" name="dates" placeholder="e.g. mid-June">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="message">Tell us about your group</label>
+        <textarea id="message" name="message" placeholder="Your background, what you're curious about, any special interests…"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit-btn" id="submitBtn">
+        Send message →
+      </button>
+      <p class="form-note">No spam, ever. Just a reply from a human who loves this city.</p>
+    </form>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 Viacalli — Mexico City</p>
+  <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
+</footer>
+
+<script>
+// ── TOUR PRESELECTION from URL param ──
+const tourMap = {
+  'architecture': 'Mexican Modernism — Architecture',
+  'muralism':     'The Wall as Manifesto — Muralism',
+  'contemporary': 'Present Tense — Contemporary Art',
+};
+
+function applyTourParam() {
+  const params = new URLSearchParams(window.location.search);
+  const tour = params.get('tour');
+  if (!tour || !tourMap[tour]) return;
+
+  const select = document.getElementById('tour');
+  const banner = document.getElementById('tourBanner');
+  const bannerName = document.getElementById('bannerTourName');
+  const fullName = tourMap[tour];
+
+  // Preselect dropdown
+  for (let i = 0; i < select.options.length; i++) {
+    if (select.options[i].value === fullName) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+
+  // Show banner
+  bannerName.textContent = fullName;
+  banner.classList.remove('hidden');
+}
+
+function clearTourSelection() {
+  document.getElementById('tour').selectedIndex = 0;
+  document.getElementById('tourBanner').classList.add('hidden');
+  // Remove param from URL without reload
+  const url = new URL(window.location);
+  url.searchParams.delete('tour');
+  window.history.replaceState({}, '', url);
+}
+
+// ── FORM SUBMIT (Formspree AJAX) ──
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const data = new FormData(this);
+    const response = await fetch(this.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      this.style.display = 'none';
+      document.getElementById('tourBanner').style.display = 'none';
+      document.getElementById('successMsg').classList.add('visible');
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Try again →';
+      alert('Something went wrong. Please try emailing us directly at hello@viacalli.com');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Try again →';
+    alert('Connection error. Please email us at hello@viacalli.com');
+  }
+});
+
+applyTourParam();
+</script>
+
+</body>
+</html>

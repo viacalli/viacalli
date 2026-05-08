@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Nunito+Sans:wght@300;400;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --lav-dark:  #BF9AC8;
+  --lav-light: #C6B1CB;
+  --cream:     #F0EFEA;
+  --ink:       #2e2535;
+  --muted:     #7a6e82;
+  --soft:      #e8e3f0;
+  --white:     #faf9f7;
+  --serif:     'Nunito', sans-serif;
+  --sans:      'Nunito Sans', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3.5rem;
+  background: rgba(240, 239, 234, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(191,154,200,0.2);
+}
+
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-logo span {
+  color: var(--lav-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: var(--lav-dark);
+  color: #fff;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.75rem 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border: none;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: var(--lav-dark);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 20px rgba(191,154,200,0.45);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--lav-dark);
+  border: 1.5px solid var(--lav-dark);
+}
+
+.btn-outline:hover {
+  background: var(--soft);
+}
+
+/* ── SECTION LABELS ── */
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 2.5rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color: var(--lav-light);
+}
+
+footer a {
+  color: var(--lav-dark);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover { color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links a { padding: 0.4rem 0.7rem; font-size: 0.78rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
+}

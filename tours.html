@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tours — Viacalli</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-header {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.page-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 52ch;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ── TOUR CARDS ── */
+.tours-list {
+  padding: 2rem 3.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.tour-card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid rgba(191,154,200,0.2);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.tour-card:hover {
+  box-shadow: 0 8px 40px rgba(191,154,200,0.18);
+}
+
+.tour-card-inner {
+  padding: 2.8rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.tour-card-left { flex: 1; }
+
+.tour-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(191,154,200,0.12);
+  border: 1px solid rgba(191,154,200,0.3);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+  margin-bottom: 1.2rem;
+}
+
+.tour-card h2 {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.tour-card > .tour-card-inner > .tour-card-left > p {
+  font-size: 0.98rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  max-width: 56ch;
+}
+
+.tour-details {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.8rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+}
+
+.detail-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tour-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.highlight-dot {
+  width: 6px; height: 6px;
+  background: var(--lav-dark);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.tour-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  min-width: 160px;
+}
+
+.price-block {
+  text-align: right;
+}
+
+.price-from {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.price-amount {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.price-note {
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+.tour-divider {
+  height: 1px;
+  background: rgba(191,154,200,0.15);
+  margin: 0 2.8rem;
+}
+
+.tour-card-footer {
+  padding: 1.2rem 2.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(191,154,200,0.04);
+}
+
+.tour-card-footer p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .tours-list { padding: 2rem 1.5rem 4rem; }
+  .tour-card-inner { grid-template-columns: 1fr; }
+  .tour-card-right { align-items: flex-start; flex-direction: row; align-items: center; justify-content: space-between; }
+  .price-block { text-align: left; }
+  .tour-card-footer { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Via<span>calli</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tours.html" class="active">Tours</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <span class="eyebrow">Experiences</span>
+  <h1>Our tours</h1>
+  <p>Three curated itineraries, each built around a question — a way of looking that transforms what you see.</p>
+</div>
+
+<div class="tours-list">
+
+  <!-- TOUR 1: Architecture -->
+  <div class="tour-card" id="architecture">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🏛 Architecture</div>
+        <h2>Mexican Modernism</h2>
+        <p>From Barragán's chromatic walls to Candela's hyperbolic shells — a walk through the audacious modernist project of a nation building itself in concrete, color, and light. We visit spaces rarely seen by tourists and examine what happens when architecture becomes ideology.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">4–5 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 8 guests</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN / ES</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Format</span>
+            <span class="detail-val">Walking + transit</span>
+          </div>
+        </div>
+        <div class="tour-highlights">
+          <div class="highlight-item"><div class="highlight-dot"></div> Luis Barragán's house and studio (UNESCO site)</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Félix Candela's structural experiments</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> The Mexico City Olímpico context and legacy</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Curated stops in Pedregal and San Ángel</div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$120</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=architecture" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Ideal for architects, students of design, and lovers of 20th-century culture.</p>
+      <a href="contact.html?tour=architecture" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 2: Muralism -->
+  <div class="tour-card" id="muralism">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🎨 Muralism</div>
+        <h2>The Wall as Manifesto</h2>
+        <p>Rivera, Orozco, Siqueiros — three artists, one radical proposition: that the walls of public buildings belong to everyone. We visit the SEP, the Palacio Nacional, and Bellas Artes to decode the grammar of revolution, identity, and myth painted across the walls of Mexico City's most extraordinary spaces.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">3–4 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 8 guests</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN / ES</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Format</span>
+            <span class="detail-val">Walking — Centro Histórico</span>
+          </div>
+        </div>
+        <div class="tour-highlights">
+          <div class="highlight-item"><div class="highlight-dot"></div> Diego Rivera's epic cycle at the Secretaría de Educación</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Palacio Nacional staircase murals</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Bellas Artes — Orozco, Siqueiros, Rivera under one roof</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Context on the Mexican School and its politics</div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$95</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=muralism" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Perfect for art historians, cultural travelers, and anyone moved by political art.</p>
+      <a href="contact.html?tour=muralism" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 3: Contemporary -->
+  <div class="tour-card" id="contemporary">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">✦ Contemporary Art</div>
+        <h2>Present Tense</h2>
+        <p>A living map of contemporary Mexican art — from the landmark institutions of Colonia Roma to the emerging studios and project spaces that are redefining what Mexican culture looks like right now. This tour changes as the city changes. No two runs are identical.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">3–4 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN / ES</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Format</span>
+            <span class="detail-val">Walking — Roma / Juárez</span>
+          </div>
+        </div>
+        <div class="tour-highlights">
+          <div class="highlight-item"><div class="highlight-dot"></div> Curated gallery stops in Roma Norte and Colonia Juárez</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Artist-run spaces and independent project rooms</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> The context: what the current generation of Mexican artists is saying</div>
+          <div class="highlight-item"><div class="highlight-dot"></div> Optional studio visit (subject to availability)</div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$95</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=contemporary" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>For gallerists, collectors, curators, and anyone tracking what's happening now.</p>
+      <a href="contact.html?tour=contemporary" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Viacalli — Mexico City</p>
+  <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
+</footer>
+
+</body>
+</html>
