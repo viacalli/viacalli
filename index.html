@@ -204,7 +204,7 @@
   font-weight: 600;
 }
 
-/* ── TOURS PREVIEW ── */
+/* ── TOURS CAROUSEL ── */
 .tours-preview {
   padding: 0 3.5rem 6rem;
 }
@@ -212,8 +212,8 @@
 .section-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 2.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .section-header h2 {
@@ -223,10 +223,43 @@
   color: var(--ink);
 }
 
-.tours-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.carousel-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(191,154,200,0.4);
+  background: var(--white);
+  color: var(--lav-dark);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--lav-dark);
+  color: #fff;
+  border-color: var(--lav-dark);
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carousel-track {
+  display: flex;
   gap: 1.2rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .tour-preview-card {
@@ -238,6 +271,8 @@
   text-decoration: none;
   color: inherit;
   display: block;
+  flex: 0 0 calc((100% - 2.4rem) / 3);
+  min-width: 0;
 }
 
 .tour-preview-card:hover {
@@ -280,13 +315,35 @@
   gap: 0.3rem;
 }
 
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(191,154,200,0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.carousel-dot.active {
+  background: var(--lav-dark);
+  transform: scale(1.2);
+}
+
 @media (max-width: 768px) {
   .intro-strip { grid-template-columns: 1fr; }
   .strip-item { border-right: none; border-bottom: 1px solid rgba(191,154,200,0.2); }
   .about-teaser { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
   .tours-preview { padding: 0 1.5rem 4rem; }
-  .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .tours-row { grid-template-columns: 1fr; }
+  .section-header { flex-direction: row; }
+  .tour-preview-card { flex: 0 0 100%; }
 }
 </style>
 </head>
@@ -306,13 +363,13 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-tag"><span class="hero-dot"></span> Mexico City</div>
-    <h1>The city<br><span class="highlight">beyond postcards</span></h1>
+    <h1>The city as a<br><span class="highlight">living text</span></h1>
     <p class="hero-sub">
-          Intimate cultural experiences for curious minds seeking a deeper connection with Mexico City.
+      Private architecture, muralism, and contemporary art tours for curious minds who want to read Mexico City — not just visit it.
     </p>
     <div class="hero-actions">
       <a href="tours.html" class="btn btn-primary">Explore our tours →</a>
-      <a href="contact.html" class="btn btn-outline">Begin Your Journey</a>
+      <a href="contact.html" class="btn btn-outline">Book a private tour</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -323,11 +380,11 @@
 
 <div class="intro-strip">
   <div class="strip-item">
-    <div class="strip-num">+7</div>
+    <div class="strip-num">7</div>
     <div class="strip-label">curated experiences</div>
   </div>
   <div class="strip-item">
-    <div class="strip-num">6</div>
+    <div class="strip-num">8</div>
     <div class="strip-label">max guests per tour</div>
   </div>
   <div class="strip-item">
@@ -341,12 +398,12 @@
     <span class="eyebrow">Our approach</span>
     <h2>Not sightseeing.<br>Close reading.</h2>
     <p>
-      Viacalli is built for cultural travelers who want genuine depth. Each tour is a guided interpretation — of an artwork, a building, a neighborhood, a moment in Mexican history.
+      Viacalli is built for architects, designers, and cultural travelers who want genuine depth. Each tour is a guided interpretation — of a wall, a building, a neighborhood, a moment in Mexican history.
     </p>
     <a href="about.html" class="btn btn-outline">Meet your guide</a>
   </div>
   <div class="about-card">
-    <p class="about-card-quote">"Every artistic expression in this city is part of a larger conversation about Mexico"</p>
+    <p class="about-card-quote">"Every building in this city is an argument about what Mexico should be."</p>
     <p class="about-card-meta">— The premise behind every Viacalli tour</p>
   </div>
 </section>
@@ -354,28 +411,68 @@
 <section class="tours-preview">
   <div class="section-header">
     <h2>Our experiences</h2>
-    <a href="tours.html" class="btn btn-outline" style="font-size:0.82rem; padding: 0.55rem 1.3rem;">See all tours</a>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="carousel-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
   </div>
-  <div class="tours-row">
-    <a href="tours.html#architecture" class="tour-preview-card">
-      <div class="tour-icon">🏛</div>
-      <h3>Mexican Modernism</h3>
-      <p>From Barragán's chromatic walls to Candela's hyperbolic shells — concrete as philosophy.</p>
-      <div class="tour-link-arrow">Learn more →</div>
-    </a>
-    <a href="tours.html#muralism" class="tour-preview-card">
-      <div class="tour-icon">🎨</div>
-      <h3>The Wall as Manifesto</h3>
-      <p>Rivera, Orozco, Siqueiros — revolution written in pigment across the walls of a nation.</p>
-      <div class="tour-link-arrow">Learn more →</div>
-    </a>
-    <a href="tours.html#contemporary" class="tour-preview-card">
-      <div class="tour-icon">✦</div>
-      <h3>Present Tense</h3>
-      <p>Roma, Juárez, and the living gallery circuit — contemporary Mexican art in real time.</p>
-      <div class="tour-link-arrow">Learn more →</div>
-    </a>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <a href="tours.html#frida" class="tour-preview-card">
+        <div class="tour-icon">🎨</div>
+        <h3>Museo Frida Kahlo</h3>
+        <p>The human stories behind the paintings — and the atmosphere of the home she carefully preserved.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#bellasartes" class="tour-preview-card">
+        <div class="tour-icon">🏛</div>
+        <h3>Palacio de Bellas Artes</h3>
+        <p>Rivera, Siqueiros, Orozco, and Tamayo — revolution written in pigment across Mexico's greatest stage.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#munal" class="tour-preview-card">
+        <div class="tour-icon">🖼</div>
+        <h3>Museo Nacional de Arte</h3>
+        <p>Mexico's visual history inside one of the city's most elegant historic buildings.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#antropologia" class="tour-preview-card">
+        <div class="tour-icon">🏺</div>
+        <h3>Antropología e Historia</h3>
+        <p>From the Mexica and Maya to modern identity — the civilizations that shaped a nation.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#barragan" class="tour-preview-card">
+        <div class="tour-icon">🏠</div>
+        <h3>Casa Ortega — Barragán</h3>
+        <p>Light, color, silence, and texture — the quiet beauty of a lesser-known Barragán masterpiece.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#gastronomico" class="tour-preview-card">
+        <div class="tour-icon">🍽</div>
+        <h3>Tour Gastronómico</h3>
+        <p>Hidden gems, local classics, and the stories behind Mexico City's most iconic flavors.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+      <a href="tours.html#photoshooting" class="tour-preview-card">
+        <div class="tour-icon">📷</div>
+        <h3>Photoshooting</h3>
+        <p>A relaxed, professional photoshoot across the city's most beautiful and characterful spots.</p>
+        <div class="tour-link-arrow">Learn more →</div>
+      </a>
+
+    </div>
   </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
 </section>
 
 <footer>
@@ -383,5 +480,55 @@
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
 
+<script>
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  const cards = track.querySelectorAll('.tour-preview-card');
+  const total = cards.length;
+  const visible = 3; // cards shown at once
+  const steps = total - visible; // 0..4
+  let current = 0;
+  let autoTimer;
+
+  // Build dots (one per step + last)
+  const dotCount = steps + 1;
+  const dots = [];
+  for (let i = 0; i < dotCount; i++) {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(d);
+    dots.push(d);
+  }
+
+  function getCardWidth() {
+    const card = cards[0];
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 19.2;
+    return card.offsetWidth + gap;
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, steps));
+    track.style.transform = `translateX(-${current * getCardWidth()}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function next() { goTo(current < steps ? current + 1 : 0); }
+  function prev() { goTo(current > 0 ? current - 1 : steps); }
+
+  nextBtn.addEventListener('click', () => { resetTimer(); next(); });
+  prevBtn.addEventListener('click', () => { resetTimer(); prev(); });
+
+  function startTimer() { autoTimer = setInterval(next, 3500); }
+  function resetTimer() { clearInterval(autoTimer); startTimer(); }
+
+  startTimer();
+})();
+</script>
 </body>
 </html>
