@@ -3,8 +3,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --lav-dark:  #BF9AC8;
-  --lav-light: #C6B1CB;
+  --lav-dark:  #AFA4CE;
+  --lav-light: #C4BEDC;
   --cream:     #F0EFEA;
   --ink:       #2e2535;
   --muted:     #7a6e82;
@@ -40,16 +40,20 @@ nav {
 }
 
 .nav-logo {
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--ink);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(68%) sepia(12%) saturate(600%) hue-rotate(220deg) brightness(95%);
 }
 
 .nav-logo span {
-  color: var(--lav-dark);
+  display: none;
 }
 
 .nav-links {

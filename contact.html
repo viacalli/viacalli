@@ -60,7 +60,7 @@
 
 .contact-info-icon {
   width: 36px; height: 36px;
-  background: rgba(191,154,200,0.12);
+  background: rgba(175,164,206,0.12);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -88,8 +88,8 @@
 }
 
 .selected-tour-banner {
-  background: rgba(191,154,200,0.1);
-  border: 1px solid rgba(191,154,200,0.3);
+  background: rgba(175,164,206,0.1);
+  border: 1px solid rgba(175,164,206,0.3);
   border-radius: 14px;
   padding: 1rem 1.3rem;
   margin-bottom: 2rem;
@@ -151,7 +151,7 @@
 .field textarea,
 .field select {
   background: var(--white);
-  border: 1.5px solid rgba(191,154,200,0.25);
+  border: 1.5px solid rgba(175,164,206,0.25);
   border-radius: 12px;
   padding: 0.75rem 1rem;
   font-family: var(--sans);
@@ -171,7 +171,7 @@
 .field textarea:focus,
 .field select:focus {
   border-color: var(--lav-dark);
-  box-shadow: 0 0 0 3px rgba(191,154,200,0.15);
+  box-shadow: 0 0 0 3px rgba(175,164,206,0.15);
 }
 
 .field select {
@@ -203,7 +203,7 @@
 }
 
 .form-submit-btn:hover {
-  box-shadow: 0 6px 24px rgba(191,154,200,0.4);
+  box-shadow: 0 6px 24px rgba(175,164,206,0.4);
   transform: translateY(-1px);
 }
 
@@ -223,8 +223,8 @@
 /* Success state */
 .success-message {
   display: none;
-  background: rgba(191,154,200,0.1);
-  border: 1px solid rgba(191,154,200,0.3);
+  background: rgba(175,164,206,0.1);
+  border: 1px solid rgba(175,164,206,0.3);
   border-radius: 18px;
   padding: 2.5rem;
   text-align: center;
@@ -261,7 +261,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Via<span>calli</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo_definitivo.png" alt="Viacalli"></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="tours.html">Tours</a></li>
@@ -341,9 +341,13 @@
         <label for="tour">Experience of interest</label>
         <select id="tour" name="tour">
           <option value="">— Select a tour (optional) —</option>
-          <option value="Mexican Modernism — Architecture">Mexican Modernism — Architecture</option>
-          <option value="The Wall as Manifesto — Muralism">The Wall as Manifesto — Muralism</option>
-          <option value="Present Tense — Contemporary Art">Present Tense — Contemporary Art</option>
+          <option value="Museo Frida Kahlo">Museo Frida Kahlo</option>
+          <option value="Palacio de Bellas Artes">Palacio de Bellas Artes</option>
+          <option value="Museo Nacional de Arte">Museo Nacional de Arte</option>
+          <option value="Antropología e Historia">Antropología e Historia</option>
+          <option value="Casa Ortega de Luis Barragán">Casa Ortega de Luis Barragán</option>
+          <option value="Tour Gastronómico">Tour Gastronómico</option>
+          <option value="Photoshooting">Photoshooting</option>
           <option value="Custom itinerary">Custom itinerary</option>
         </select>
       </div>
@@ -381,9 +385,13 @@
 <script>
 // ── TOUR PRESELECTION from URL param ──
 const tourMap = {
-  'architecture': 'Mexican Modernism — Architecture',
-  'muralism':     'The Wall as Manifesto — Muralism',
-  'contemporary': 'Present Tense — Contemporary Art',
+  'frida':        'Museo Frida Kahlo',
+  'bellasartes':  'Palacio de Bellas Artes',
+  'munal':        'Museo Nacional de Arte',
+  'antropologia': 'Antropología e Historia',
+  'barragan':     'Casa Ortega de Luis Barragán',
+  'gastronomico': 'Tour Gastronómico',
+  'photoshoot':   'Photoshooting',
 };
 
 function applyTourParam() {

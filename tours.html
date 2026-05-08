@@ -43,13 +43,13 @@
 .tour-card {
   background: var(--white);
   border-radius: 24px;
-  border: 1px solid rgba(191,154,200,0.2);
+  border: 1px solid rgba(175,164,206,0.2);
   overflow: hidden;
   transition: box-shadow 0.2s;
 }
 
 .tour-card:hover {
-  box-shadow: 0 8px 40px rgba(191,154,200,0.18);
+  box-shadow: 0 8px 40px rgba(175,164,206,0.18);
 }
 
 .tour-card-inner {
@@ -60,14 +60,12 @@
   align-items: start;
 }
 
-.tour-card-left { flex: 1; }
-
 .tour-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(191,154,200,0.12);
-  border: 1px solid rgba(191,154,200,0.3);
+  background: rgba(175,164,206,0.12);
+  border: 1px solid rgba(175,164,206,0.3);
   border-radius: 999px;
   padding: 0.3rem 0.9rem;
   font-size: 0.68rem;
@@ -105,7 +103,7 @@
 .detail-item {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.1rem;
 }
 
 .detail-label {
@@ -122,27 +120,10 @@
   color: var(--ink);
 }
 
-.tour-highlights {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.highlight-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.88rem;
+.detail-note {
+  font-size: 0.72rem;
   color: var(--muted);
-}
-
-.highlight-dot {
-  width: 6px; height: 6px;
-  background: var(--lav-dark);
-  border-radius: 50%;
-  margin-top: 0.5rem;
-  flex-shrink: 0;
+  font-style: italic;
 }
 
 .tour-card-right {
@@ -153,9 +134,7 @@
   min-width: 160px;
 }
 
-.price-block {
-  text-align: right;
-}
+.price-block { text-align: right; }
 
 .price-from {
   font-size: 0.65rem;
@@ -173,14 +152,11 @@
   line-height: 1.1;
 }
 
-.price-note {
-  font-size: 0.7rem;
-  color: var(--muted);
-}
+.price-note { font-size: 0.7rem; color: var(--muted); }
 
 .tour-divider {
   height: 1px;
-  background: rgba(191,154,200,0.15);
+  background: rgba(175,164,206,0.15);
   margin: 0 2.8rem;
 }
 
@@ -189,7 +165,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(191,154,200,0.04);
+  background: rgba(175,164,206,0.04);
 }
 
 .tour-card-footer p {
@@ -201,7 +177,7 @@
 @media (max-width: 768px) {
   .tours-list { padding: 2rem 1.5rem 4rem; }
   .tour-card-inner { grid-template-columns: 1fr; }
-  .tour-card-right { align-items: flex-start; flex-direction: row; align-items: center; justify-content: space-between; }
+  .tour-card-right { flex-direction: row; align-items: center; justify-content: space-between; }
   .price-block { text-align: left; }
   .tour-card-footer { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
 }
@@ -210,7 +186,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Via<span>calli</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo_definitivo.png" alt="Viacalli"></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="tours.html" class="active">Tours</a></li>
@@ -222,152 +198,288 @@
 <div class="page-header">
   <span class="eyebrow">Experiences</span>
   <h1>Our tours</h1>
-  <p>Three curated itineraries, each built around a question — a way of looking that transforms what you see.</p>
+  <p>Eight curated experiences, each designed around a different way of seeing — and understanding — Mexico City.</p>
 </div>
 
 <div class="tours-list">
 
-  <!-- TOUR 1: Architecture -->
-  <div class="tour-card" id="architecture">
+  <!-- TOUR 1: Frida Kahlo -->
+  <div class="tour-card" id="frida">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🏛 Architecture</div>
-        <h2>Mexican Modernism</h2>
-        <p>From Barragán's chromatic walls to Candela's hyperbolic shells — a walk through the audacious modernist project of a nation building itself in concrete, color, and light. We visit spaces rarely seen by tourists and examine what happens when architecture becomes ideology.</p>
+        <div class="tour-badge">🌸 Museum</div>
+        <h2>Museo Frida Kahlo</h2>
+        <p>Far more than a conventional museum visit. This experience approaches Frida through the human stories behind the paintings and the atmosphere of the home she carefully preserved — a conversation-driven encounter with the life, contradictions, and enduring power of one of Mexico's most iconic figures.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label">Duration</span>
-            <span class="detail-val">4–5 hours</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 8 guests</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN / ES</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Format</span>
-            <span class="detail-val">Walking + transit</span>
-          </div>
-        </div>
-        <div class="tour-highlights">
-          <div class="highlight-item"><div class="highlight-dot"></div> Luis Barragán's house and studio (UNESCO site)</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Félix Candela's structural experiments</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> The Mexico City Olímpico context and legacy</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Curated stops in Pedregal and San Ángel</div>
-        </div>
-      </div>
-      <div class="tour-card-right">
-        <div class="price-block">
-          <div class="price-from">From</div>
-          <div class="price-amount">$120</div>
-          <div class="price-note">USD / person</div>
-        </div>
-        <a href="contact.html?tour=architecture" class="btn btn-primary">Book this tour →</a>
-      </div>
-    </div>
-    <div class="tour-divider"></div>
-    <div class="tour-card-footer">
-      <p>Ideal for architects, students of design, and lovers of 20th-century culture.</p>
-      <a href="contact.html?tour=architecture" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
-    </div>
-  </div>
-
-  <!-- TOUR 2: Muralism -->
-  <div class="tour-card" id="muralism">
-    <div class="tour-card-inner">
-      <div class="tour-card-left">
-        <div class="tour-badge">🎨 Muralism</div>
-        <h2>The Wall as Manifesto</h2>
-        <p>Rivera, Orozco, Siqueiros — three artists, one radical proposition: that the walls of public buildings belong to everyone. We visit the SEP, the Palacio Nacional, and Bellas Artes to decode the grammar of revolution, identity, and myth painted across the walls of Mexico City's most extraordinary spaces.</p>
-        <div class="tour-details">
-          <div class="detail-item">
-            <span class="detail-label">Duration</span>
-            <span class="detail-val">3–4 hours</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 8 guests</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN / ES</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Format</span>
-            <span class="detail-val">Walking — Centro Histórico</span>
-          </div>
-        </div>
-        <div class="tour-highlights">
-          <div class="highlight-item"><div class="highlight-dot"></div> Diego Rivera's epic cycle at the Secretaría de Educación</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Palacio Nacional staircase murals</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Bellas Artes — Orozco, Siqueiros, Rivera under one roof</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Context on the Mexican School and its politics</div>
-        </div>
-      </div>
-      <div class="tour-card-right">
-        <div class="price-block">
-          <div class="price-from">From</div>
-          <div class="price-amount">$95</div>
-          <div class="price-note">USD / person</div>
-        </div>
-        <a href="contact.html?tour=muralism" class="btn btn-primary">Book this tour →</a>
-      </div>
-    </div>
-    <div class="tour-divider"></div>
-    <div class="tour-card-footer">
-      <p>Perfect for art historians, cultural travelers, and anyone moved by political art.</p>
-      <a href="contact.html?tour=muralism" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
-    </div>
-  </div>
-
-  <!-- TOUR 3: Contemporary -->
-  <div class="tour-card" id="contemporary">
-    <div class="tour-card-inner">
-      <div class="tour-card-left">
-        <div class="tour-badge">✦ Contemporary Art</div>
-        <h2>Present Tense</h2>
-        <p>A living map of contemporary Mexican art — from the landmark institutions of Colonia Roma to the emerging studios and project spaces that are redefining what Mexican culture looks like right now. This tour changes as the city changes. No two runs are identical.</p>
-        <div class="tour-details">
-          <div class="detail-item">
-            <span class="detail-label">Duration</span>
-            <span class="detail-val">3–4 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label">Group size</span>
             <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
             <span class="detail-label">Language</span>
-            <span class="detail-val">EN / ES</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
           </div>
-          <div class="detail-item">
-            <span class="detail-label">Format</span>
-            <span class="detail-val">Walking — Roma / Juárez</span>
-          </div>
-        </div>
-        <div class="tour-highlights">
-          <div class="highlight-item"><div class="highlight-dot"></div> Curated gallery stops in Roma Norte and Colonia Juárez</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Artist-run spaces and independent project rooms</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> The context: what the current generation of Mexican artists is saying</div>
-          <div class="highlight-item"><div class="highlight-dot"></div> Optional studio visit (subject to availability)</div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
           <div class="price-from">From</div>
-          <div class="price-amount">$95</div>
+          <div class="price-amount">$75</div>
           <div class="price-note">USD / person</div>
         </div>
-        <a href="contact.html?tour=contemporary" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=frida" class="btn btn-primary">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>For gallerists, collectors, curators, and anyone tracking what's happening now.</p>
-      <a href="contact.html?tour=contemporary" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p>Ideal for art lovers, history enthusiasts, and anyone drawn to Frida's story.</p>
+      <a href="contact.html?tour=frida" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 2: Bellas Artes -->
+  <div class="tour-card" id="bellasartes">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🎨 Muralism</div>
+        <h2>Palacio de Bellas Artes</h2>
+        <p>Begin at Mexico's most celebrated cultural venue and discover how Rivera, Siqueiros, Orozco, and Tamayo used its walls to express revolution, identity, and the future of a nation. A close reading of public art as a political and emotional act — all under one extraordinary roof.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">2 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$55</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=bellasartes" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Perfect for art historians, cultural travelers, and anyone moved by political muralism.</p>
+      <a href="contact.html?tour=bellasartes" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 3: MUNAL -->
+  <div class="tour-card" id="munal">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🖼 Art History</div>
+        <h2>Museo Nacional de Arte</h2>
+        <p>Inside one of the most elegant historic buildings in the city, this experience focuses not on dates and attributions, but on the stories and symbolism embedded in the collection. Watch Mexican art evolve alongside the country itself — from colonial influence to modernization and national identity.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">2 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$55</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=munal" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Ideal for curious travelers wanting to understand Mexico's visual and cultural history.</p>
+      <a href="contact.html?tour=munal" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 4: Antropología -->
+  <div class="tour-card" id="antropologia">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">☀️ History</div>
+        <h2>Antropología e Historia</h2>
+        <p>An intimate, passion-driven visit through the civilizations that shaped Mexico — from the Mexica and Maya to the complex arc of conquest, independence, and modern identity. We focus on the human stories behind the objects, the ideas that transformed a nation, and the living connections between ancient and contemporary Mexico.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">2 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$55</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=antropologia" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>For anyone who wants to understand where Mexico comes from — and where it's going.</p>
+      <a href="contact.html?tour=antropologia" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 5: Casa Barragán -->
+  <div class="tour-card" id="barragan">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🏛 Architecture</div>
+        <h2>Casa Ortega de Luis Barragán</h2>
+        <p>Discover the quiet beauty and emotional depth of Casa Ortega — one of the lesser-known residential masterpieces connected to Barragán's vision. Through light, color, silence, and texture, this intimate experience explores architecture as contemplation, not spectacle. We'll discuss his influence on modern design and the cultural context of mid-century Mexico.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">1.5 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$99</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=barragan" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Designed for travelers genuinely interested in architecture, design, and cultural history.</p>
+      <a href="contact.html?tour=barragan" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 6: Gastronómico -->
+  <div class="tour-card" id="gastronomico">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">🍽 Food & Culture</div>
+        <h2>Tour Gastronómico</h2>
+        <p>Experience Mexico City through its flavors — from beloved local classics to hidden neighborhood gems. This isn't a list of stops; it's a guided conversation about how food reflects the city's history, identity, and creativity. Small groups, thoughtful tastings, and places most visitors would never find on their own.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">2 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$60</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=gastronomico" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>For curious eaters who want to understand a city through what it eats.</p>
+      <a href="contact.html?tour=gastronomico" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+    </div>
+  </div>
+
+  <!-- TOUR 7: Photoshooting -->
+  <div class="tour-card" id="photoshoot">
+    <div class="tour-card-inner">
+      <div class="tour-card-left">
+        <div class="tour-badge">📷 Photography</div>
+        <h2>Photoshooting</h2>
+        <p>A relaxed, professionally guided session designed to feel natural, personal, and effortless. Together we'll explore carefully selected locations that capture the atmosphere and character of Mexico City — creating images that feel authentic rather than posed. Comfortable even for those with little experience in front of a camera. Includes edited high-resolution images.</p>
+        <div class="tour-details">
+          <div class="detail-item">
+            <span class="detail-label">Duration</span>
+            <span class="detail-val">2 hours</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Group size</span>
+            <span class="detail-val">Max 6 guests</span>
+            <span class="detail-note">Larger single groups welcome</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Language</span>
+            <span class="detail-val">EN or ES</span>
+            <span class="detail-note">One language per tour</span>
+          </div>
+        </div>
+      </div>
+      <div class="tour-card-right">
+        <div class="price-block">
+          <div class="price-from">From</div>
+          <div class="price-amount">$99</div>
+          <div class="price-note">USD / person</div>
+        </div>
+        <a href="contact.html?tour=photoshoot" class="btn btn-primary">Book this tour →</a>
+      </div>
+    </div>
+    <div class="tour-divider"></div>
+    <div class="tour-card-footer">
+      <p>Perfect for solo travelers, couples, friends, and anyone wanting meaningful memories of the city.</p>
+      <a href="contact.html?tour=photoshoot" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
     </div>
   </div>
 
