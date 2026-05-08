@@ -20,6 +20,7 @@
   align-items: start;
 }
 
+/* ── LEFT ── */
 .contact-left {
   padding-top: 3rem;
   position: sticky;
@@ -81,6 +82,7 @@
 
 .contact-info-text a:hover { text-decoration: underline; }
 
+/* ── FORM ── */
 .contact-right {
   padding-top: 3rem;
 }
@@ -180,6 +182,7 @@
 }
 
 .field select option { color: var(--ink); }
+
 .field textarea { resize: vertical; min-height: 100px; }
 
 .form-submit-btn {
@@ -217,6 +220,7 @@
   font-style: italic;
 }
 
+/* Success state */
 .success-message {
   display: none;
   background: rgba(191,154,200,0.1);
@@ -271,7 +275,7 @@
   <div class="contact-left">
     <span class="eyebrow">Get in touch</span>
     <h1>Let's plan your <span>experience</span></h1>
-    <p>Tell us about your group and what you're curious about. We'll write back within 48 hours to find the right tour for you.</p>
+    <p>Tell us about your group and what you're curious about. We'll reach out to find the right tour for you.</p>
 
     <div class="contact-info">
       <div class="contact-info-item">
@@ -286,29 +290,37 @@
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">🌐</div>
-        <div class="contact-info-text">Tours in English or Spanish — not mixed</div>
+        <div class="contact-info-text">Tours available in English & Spanish</div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">⏱</div>
-        <div class="contact-info-text">We reply within 48 hours</div>
+        <div class="contact-info-text">We reply within 1 hour</div>
       </div>
     </div>
   </div>
 
   <div class="contact-right">
 
+    <!-- Tour preselect banner (shown when coming from a tour page) -->
     <div class="selected-tour-banner hidden" id="tourBanner">
       <div class="banner-text">Inquiring about: <strong id="bannerTourName"></strong></div>
       <button class="banner-clear" onclick="clearTourSelection()">Clear selection</button>
     </div>
 
+    <!-- SUCCESS STATE -->
     <div class="success-message" id="successMsg">
       <div class="success-icon">✦</div>
       <h3>Message received!</h3>
       <p>Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
     </div>
 
-    <form class="contact-form" id="contactForm" action="https://formspree.io/f/hello@viacalli.com" method="POST">
+    <!-- FORM -->
+    <form
+      class="contact-form"
+      id="contactForm"
+      action="https://formspree.io/f/hello@viacalli.com"
+      method="POST"
+    >
       <div class="form-row">
         <div class="field">
           <label for="firstName">First name</label>
@@ -329,13 +341,9 @@
         <label for="tour">Experience of interest</label>
         <select id="tour" name="tour">
           <option value="">— Select a tour (optional) —</option>
-          <option value="Museo Frida Kahlo">Museo Frida Kahlo</option>
-          <option value="Palacio de Bellas Artes">Palacio de Bellas Artes</option>
-          <option value="Museo Nacional de Arte">Museo Nacional de Arte</option>
-          <option value="Antropología e Historia">Antropología e Historia</option>
-          <option value="Casa Ortega — Luis Barragán">Casa Ortega — Luis Barragán</option>
-          <option value="Tour Gastronómico">Tour Gastronómico</option>
-          <option value="Photoshooting">Photoshooting</option>
+          <option value="Mexican Modernism — Architecture">Mexican Modernism — Architecture</option>
+          <option value="The Wall as Manifesto — Muralism">The Wall as Manifesto — Muralism</option>
+          <option value="Present Tense — Contemporary Art">Present Tense — Contemporary Art</option>
           <option value="Custom itinerary">Custom itinerary</option>
         </select>
       </div>
@@ -371,14 +379,11 @@
 </footer>
 
 <script>
+// ── TOUR PRESELECTION from URL param ──
 const tourMap = {
-  'frida':        'Museo Frida Kahlo',
-  'bellasartes':  'Palacio de Bellas Artes',
-  'munal':        'Museo Nacional de Arte',
-  'antropologia': 'Antropología e Historia',
-  'barragan':     'Casa Ortega — Luis Barragán',
-  'gastronomico': 'Tour Gastronómico',
-  'photoshooting':'Photoshooting',
+  'architecture': 'Mexican Modernism — Architecture',
+  'muralism':     'The Wall as Manifesto — Muralism',
+  'contemporary': 'Present Tense — Contemporary Art',
 };
 
 function applyTourParam() {
@@ -391,6 +396,7 @@ function applyTourParam() {
   const bannerName = document.getElementById('bannerTourName');
   const fullName = tourMap[tour];
 
+  // Preselect dropdown
   for (let i = 0; i < select.options.length; i++) {
     if (select.options[i].value === fullName) {
       select.selectedIndex = i;
@@ -398,6 +404,7 @@ function applyTourParam() {
     }
   }
 
+  // Show banner
   bannerName.textContent = fullName;
   banner.classList.remove('hidden');
 }
@@ -405,11 +412,13 @@ function applyTourParam() {
 function clearTourSelection() {
   document.getElementById('tour').selectedIndex = 0;
   document.getElementById('tourBanner').classList.add('hidden');
+  // Remove param from URL without reload
   const url = new URL(window.location);
   url.searchParams.delete('tour');
   window.history.replaceState({}, '', url);
 }
 
+// ── FORM SUBMIT (Formspree AJAX) ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
