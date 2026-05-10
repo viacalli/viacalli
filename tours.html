@@ -188,17 +188,18 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.svg" alt="Viacalli" style="height:38px; width:auto; display:block;"></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tours.html" class="active">Tours</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+    <li><a href="tours.html" class="active" data-i18n="nav.tours">Tours</a></li>
+    <li><a href="about.html" data-i18n="nav.about">About</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li><button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button></li>
   </ul>
 </nav>
 
 <div class="page-header">
-  <span class="eyebrow">Experiences</span>
-  <h1>Our tours</h1>
-  <p>Eight curated experiences, each designed around a different way of seeing — and understanding — Mexico City.</p>
+  <span class="eyebrow" data-i18n="tours.eyebrow">Experiences</span>
+  <h1 data-i18n="tours.h1">Our tours</h1>
+  <p data-i18n="tours.sub">Eight curated experiences, each designed around a different way of seeing — and understanding — Mexico City.</p>
 </div>
 
 <div class="tours-list">
@@ -207,39 +208,39 @@
   <div class="tour-card" id="frida">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🫀 Museum</div>
+        <div class="tour-badge">🫀 <span data-i18n="tour.frida.badge">Museum</span></div>
         <h2>Frida Kahlo Museum</h2>
         <p>Far more than a conventional museum visit. This experience approaches Frida through the human stories behind the paintings and the atmosphere of the home she carefully preserved — a conversation-driven encounter with the life, contradictions, and enduring power of one of Mexico's most iconic figures.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$75</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=frida" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=frida" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
       <p>Ideal for art lovers, history enthusiasts, and anyone drawn to Frida's story.</p>
-      <a href="contact.html?tour=frida" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <a href="contact.html?tour=frida" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -252,34 +253,34 @@
         <p>Begin at Mexico's most celebrated cultural venue and discover how Rivera, Siqueiros, Orozco, and Tamayo used its walls to express revolution, identity, and the future of a nation. A close reading of public art as a political and emotional act — all under one extraordinary roof.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$55</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=bellasartes" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=bellasartes" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>Perfect for art historians, cultural travelers, and anyone moved by political muralism.</p>
-      <a href="contact.html?tour=bellasartes" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.bellas.footer">Perfect for art historians, cultural travelers, and anyone moved by political muralism.</p>
+      <a href="contact.html?tour=bellasartes" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -287,39 +288,39 @@
   <div class="tour-card" id="munal">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🖼 Art History</div>
+        <div class="tour-badge">🖼 <span data-i18n="tour.munal.badge">Art History</span></div>
         <h2>National Art Museum</h2>
         <p>Inside one of the most elegant historic buildings in the city, this experience focuses not on dates and attributions, but on the stories and symbolism embedded in the collection. Watch Mexican art evolve alongside the country itself — from colonial influence to modernization and national identity.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$55</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=munal" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=munal" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>Ideal for curious travelers wanting to understand Mexico's visual and cultural history.</p>
-      <a href="contact.html?tour=munal" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.munal.footer">Ideal for curious travelers wanting to understand Mexico's visual and cultural history.</p>
+      <a href="contact.html?tour=munal" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -327,39 +328,39 @@
   <div class="tour-card" id="antropologia">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">☀️ History</div>
+        <div class="tour-badge">☀️ <span data-i18n="tour.antro.badge">History</span></div>
         <h2>Anthropology Museum</h2>
         <p>An intimate, passion-driven visit through the civilizations that shaped Mexico — from the Mexica and Maya to the complex arc of conquest, independence, and modern identity. We focus on the human stories behind the objects, the ideas that transformed a nation, and the living connections between ancient and contemporary Mexico.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$55</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=antropologia" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=antropologia" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>For anyone who wants to understand where Mexico comes from — and where it's going.</p>
-      <a href="contact.html?tour=antropologia" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.antro.footer">For anyone who wants to understand where Mexico comes from — and where it's going.</p>
+      <a href="contact.html?tour=antropologia" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -367,39 +368,39 @@
   <div class="tour-card" id="barragan">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🏠 Architecture</div>
+        <div class="tour-badge">🏠 <span data-i18n="tour.barragan.badge">Architecture</span></div>
         <h2>Casa Ortega by Luis Barragán</h2>
         <p>Discover the quiet beauty and emotional depth of Casa Ortega — one of the lesser-known residential masterpieces connected to Barragán's vision. Through light, color, silence, and texture, this intimate experience explores architecture as contemplation, not spectacle. We'll discuss his influence on modern design and the cultural context of mid-century Mexico.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">1.5 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$99</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=barragan" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=barragan" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>Designed for travelers genuinely interested in architecture, design, and cultural history.</p>
-      <a href="contact.html?tour=barragan" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.barragan.footer">Designed for travelers genuinely interested in architecture, design, and cultural history.</p>
+      <a href="contact.html?tour=barragan" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -407,39 +408,39 @@
   <div class="tour-card" id="gastronomico">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🍽 Food & Culture</div>
+        <div class="tour-badge">🍽 <span data-i18n="tour.food.badge">Food & Culture</span></div>
         <h2>Culinary Tour</h2>
         <p>Experience Mexico City through its flavors — from beloved local classics to hidden neighborhood gems. This isn't a list of stops; it's a guided conversation about how food reflects the city's history, identity, and creativity. Small groups, thoughtful tastings, and places most visitors would never find on their own.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$60</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=gastronomico" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=gastronomico" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>For curious eaters who want to understand a city through what it eats.</p>
-      <a href="contact.html?tour=gastronomico" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.food.footer">For curious eaters who want to understand a city through what it eats.</p>
+      <a href="contact.html?tour=gastronomico" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
@@ -447,48 +448,50 @@
   <div class="tour-card" id="photoshoot">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">📷 Photography</div>
+        <div class="tour-badge">📷 <span data-i18n="tour.photo.badge">Photography</span></div>
         <h2>Photoshooting</h2>
         <p>A relaxed, professionally guided session designed to feel natural, personal, and effortless. Together we'll explore carefully selected locations that capture the atmosphere and character of Mexico City — creating images that feel authentic rather than posed. Comfortable even for those with little experience in front of a camera. Includes edited high-resolution images.</p>
         <div class="tour-details">
           <div class="detail-item">
-            <span class="detail-label">Duration</span>
+            <span class="detail-label" data-i18n="label.duration">Duration</span>
             <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Group size</span>
-            <span class="detail-val">Max 6 guests</span>
-            <span class="detail-note">Larger single groups welcome</span>
+            <span class="detail-label" data-i18n="label.groupsize">Group size</span>
+            <span class="detail-val" data-i18n="label.maxguests">Max 6 guests</span>
+            <span class="detail-note" data-i18n="label.largegroup">Larger single groups welcome</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">Language</span>
-            <span class="detail-val">EN or ES</span>
-            <span class="detail-note">One language per tour</span>
+            <span class="detail-label" data-i18n="label.language">Language</span>
+            <span class="detail-val" data-i18n="label.lang.val">EN or ES</span>
+            <span class="detail-note" data-i18n="label.lang.note">One language per tour</span>
           </div>
         </div>
       </div>
       <div class="tour-card-right">
         <div class="price-block">
-          <div class="price-from">From</div>
+          <div class="price-from" data-i18n="label.from">From</div>
           <div class="price-amount">$99</div>
-          <div class="price-note">USD / person</div>
+          <div class="price-note" data-i18n="label.perperson">USD / person</div>
         </div>
-        <a href="contact.html?tour=photoshoot" class="btn btn-primary">Book this tour →</a>
+        <a href="contact.html?tour=photoshoot" class="btn btn-primary" data-i18n="label.book">Book this tour →</a>
       </div>
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p>Perfect for solo travelers, couples, friends, and anyone wanting meaningful memories of the city.</p>
-      <a href="contact.html?tour=photoshoot" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;">Inquire</a>
+      <p data-i18n="tour.photo.footer">Perfect for solo travelers, couples, friends, and anyone wanting meaningful memories of the city.</p>
+      <a href="contact.html?tour=photoshoot" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2025 Viacalli — Mexico City</p>
+  <p data-i18n="footer.copy">© 2025 Viacalli — Mexico City</p>
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
+
+<script src="lang.js"></script>
 
 </body>
 </html>

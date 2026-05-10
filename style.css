@@ -79,6 +79,28 @@ nav {
   color: #fff;
 }
 
+/* ── LANGUAGE TOGGLE ── */
+.lang-toggle {
+  background: transparent;
+  border: 1.5px solid rgba(175,164,206,0.45);
+  border-radius: 999px;
+  color: var(--lav-dark);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  margin-left: 0.3rem;
+}
+
+.lang-toggle:hover {
+  background: var(--lav-dark);
+  color: #fff;
+  border-color: var(--lav-dark);
+}
+
 /* ── BUTTONS ── */
 .btn {
   display: inline-flex;

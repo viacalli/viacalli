@@ -198,28 +198,29 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.svg" alt="Viacalli" style="height:38px; width:auto; display:block;"></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tours.html">Tours</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+    <li><a href="tours.html" data-i18n="nav.tours">Tours</a></li>
+    <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li><button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button></li>
   </ul>
 </nav>
 
 <div class="page-header">
-  <span class="eyebrow">About Viacalli</span>
-  <h1>A guide who listens<br>to the city</h1>
-  <p>Viacalli is not a tourism company. It's a practice of reading urban space — and sharing that reading with people who are ready to look closely.</p>
+  <span class="eyebrow" data-i18n="about.eyebrow">About Viacalli</span>
+  <h1><span data-i18n="about.h1a">A guide who listens</span><br><span data-i18n="about.h1b">to the city</span></h1>
+  <p data-i18n="about.sub">Viacalli is not a tourism company. It's a practice of reading urban space — and sharing that reading with people who are ready to look closely.</p>
 </div>
 
 <section class="bio-section">
   <div class="bio-left">
     <div class="bio-avatar">✦</div>
     <div class="bio-name">Your Guides</div>
-    <div class="bio-title">— Local Companion — Mexico City</div>
+    <div class="bio-title" data-i18n="about.bio.title">— Local Companion — Mexico City</div>
     <a href="contact.html" class="bio-contact-link">hello@viacalli.com →</a>
   </div>
   <div class="bio-right">
-    <h2>Not a tour guide in the conventional sense.</h2>
+    <h2 data-i18n="about.bio.h2">Not a tour guide in the conventional sense.</h2>
     <p>
       We are readers of cities — trained to notice what most people walk past: the structural logic of a facade, the political subtext of a mural, the quiet stories embedded in a neighborhood.
     </p>
@@ -236,41 +237,43 @@
       Mexico City is one of the world's most layered and emotionally complex urban environments. <strong>We've spent years learning to read it. We'd like to share that reading with you. </strong>
     </p>
     <br>
-    <a href="tours.html" class="btn btn-primary">See our tours →</a>
+    <a href="tours.html" class="btn btn-primary" data-i18n="about.bio.cta">See our tours →</a>
   </div>
 </section>
 
 <section class="values-section">
-  <h2>How we work</h2>
+  <h2 data-i18n="about.values.h2">How we work</h2>
   <div class="values-grid">
     <div class="value-card">
       <span class="value-icon">🔍</span>
-      <h3>Close reading</h3>
-      <p>We don't cover everything. We go deep on what matters — one building, one mural, one block at a time.</p>
+      <h3 data-i18n="about.v1.h3">Close reading</h3>
+      <p data-i18n="about.v1.p">We don't cover everything. We go deep on what matters — one building, one mural, one block at a time.</p>
     </div>
     <div class="value-card">
       <span class="value-icon">👥</span>
-      <h3>Small groups only</h3>
-      <p>Maximum 6 guests per tour. Conversations happen. Questions are welcome. No megaphones.</p>
+      <h3 data-i18n="about.v2.h3">Small groups only</h3>
+      <p data-i18n="about.v2.p">Maximum 6 guests per tour. Conversations happen. Questions are welcome. No megaphones.</p>
     </div>
     <div class="value-card">
       <span class="value-icon">🗣</span>
-      <h3>Tailored to you</h3>
-      <p>Your background shapes the tour. We speak your language — (EN/ES) — literally.</p>
+      <h3 data-i18n="about.v3.h3">Tailored to you</h3>
+      <p data-i18n="about.v3.p">Your background shapes the tour. We speak your language — (EN/ES) — literally.</p>
     </div>
   </div>
 </section>
 
 <section class="about-cta">
-  <h2>Ready to read the city?</h2>
-  <p>Tell us about your group and we'll put together the right experience for you.</p>
-  <a href="contact.html" class="btn btn-primary">Get in touch →</a>
+  <h2 data-i18n="about.cta.h2">Ready to read the city?</h2>
+  <p data-i18n="about.cta.p">Tell us about your group and we'll put together the right experience for you.</p>
+  <a href="contact.html" class="btn btn-primary" data-i18n="about.cta.btn">Get in touch →</a>
 </section>
 
 <footer>
-  <p>© 2025 Viacalli — Mexico City</p>
+  <p data-i18n="footer.copy">© 2025 Viacalli — Mexico City</p>
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
+
+<script src="lang.js"></script>
 
 </body>
 </html>

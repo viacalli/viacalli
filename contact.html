@@ -263,19 +263,20 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.svg" alt="Viacalli" style="height:38px; width:auto; display:block;"></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tours.html">Tours</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+    <li><a href="tours.html" data-i18n="nav.tours">Tours</a></li>
+    <li><a href="about.html" data-i18n="nav.about">About</a></li>
+    <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+    <li><button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button></li>
   </ul>
 </nav>
 
 <div class="contact-page">
 
   <div class="contact-left">
-    <span class="eyebrow">Get in touch</span>
-    <h1>Let's plan your <span>experience</span></h1>
-    <p>Tell us about your group and what you're curious about. We'll reach out to find the right tour for you.</p>
+    <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
+    <h1><span data-i18n="contact.h1a">Let's plan your</span> <span data-i18n="contact.h1b">experience</span></h1>
+    <p data-i18n="contact.sub">Tell us about your group and what you're curious about. We'll reach out to find the right tour for you.</p>
 
     <div class="contact-info">
       <div class="contact-info-item">
@@ -286,15 +287,15 @@
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">📍</div>
-        <div class="contact-info-text">Based in Mexico City, CDMX</div>
+        <div class="contact-info-text" data-i18n="contact.info.based">Based in Mexico City, CDMX</div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">🌐</div>
-        <div class="contact-info-text">Tours available in English & Spanish</div>
+        <div class="contact-info-text" data-i18n="contact.info.lang">Tours available in English & Spanish</div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">⏱</div>
-        <div class="contact-info-text">We reply within 1 hour</div>
+        <div class="contact-info-text" data-i18n="contact.info.reply">We reply within 1 hour</div>
       </div>
     </div>
   </div>
@@ -304,14 +305,14 @@
     <!-- Tour preselect banner (shown when coming from a tour page) -->
     <div class="selected-tour-banner hidden" id="tourBanner">
       <div class="banner-text">Inquiring about: <strong id="bannerTourName"></strong></div>
-      <button class="banner-clear" onclick="clearTourSelection()">Clear selection</button>
+      <button class="banner-clear" onclick="clearTourSelection()" data-i18n="contact.banner.clear">Clear selection</button>
     </div>
 
     <!-- SUCCESS STATE -->
     <div class="success-message" id="successMsg">
       <div class="success-icon">✦</div>
-      <h3>Message received!</h3>
-      <p>Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
+      <h3 data-i18n="contact.success.h3">Message received!</h3>
+      <p data-i18n="contact.success.p">Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
     </div>
 
     <!-- FORM -->
@@ -323,24 +324,24 @@
     >
       <div class="form-row">
         <div class="field">
-          <label for="firstName">First name</label>
-          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+          <label for="firstName" data-i18n="contact.form.fname">First name</label>
+          <input type="text" id="firstName" name="firstName" data-i18n-ph="contact.form.ph.fname" placeholder="Jane" required>
         </div>
         <div class="field">
-          <label for="lastName">Last name</label>
-          <input type="text" id="lastName" name="lastName" placeholder="Smith">
+          <label for="lastName" data-i18n="contact.form.lname">Last name</label>
+          <input type="text" id="lastName" name="lastName" data-i18n-ph="contact.form.ph.lname" placeholder="Smith">
         </div>
       </div>
 
       <div class="field">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+        <label for="email" data-i18n="contact.form.email">Email address</label>
+        <input type="email" id="email" name="email" data-i18n-ph="contact.form.ph.email" placeholder="jane@example.com" required>
       </div>
 
       <div class="field">
-        <label for="tour">Experience of interest</label>
+        <label for="tour" data-i18n="contact.form.tour">Experience of interest</label>
         <select id="tour" name="tour">
-          <option value="">— Select a tour (optional) —</option>
+          <option value="" data-i18n="contact.form.select">— Select a tour (optional) —</option>
           <option value="Frida Kahlo Museum">Frida Kahlo Museum</option>
           <option value="Palacio de Bellas Artes">Palacio de Bellas Artes</option>
           <option value="National Art Museum">National Art Museum</option>
@@ -354,33 +355,35 @@
 
       <div class="form-row">
         <div class="field">
-          <label for="groupSize">Group size</label>
-          <input type="text" id="groupSize" name="groupSize" placeholder="e.g. 4 people">
+          <label for="groupSize" data-i18n="contact.form.size">Group size</label>
+          <input type="text" id="groupSize" name="groupSize" data-i18n-ph="contact.form.ph.size" placeholder="e.g. 4 people">
         </div>
         <div class="field">
-          <label for="dates">Preferred dates</label>
-          <input type="text" id="dates" name="dates" placeholder="e.g. mid-June">
+          <label for="dates" data-i18n="contact.form.dates">Preferred dates</label>
+          <input type="text" id="dates" name="dates" data-i18n-ph="contact.form.ph.dates" placeholder="e.g. mid-June">
         </div>
       </div>
 
       <div class="field">
-        <label for="message">Tell us about your group</label>
-        <textarea id="message" name="message" placeholder="Your background, what you're curious about, any special interests…"></textarea>
+        <label for="message" data-i18n="contact.form.msg">Tell us about your group</label>
+        <textarea id="message" name="message" data-i18n-ph="contact.form.ph.msg" placeholder="Your background, what you're curious about, any special interests…"></textarea>
       </div>
 
-      <button type="submit" class="form-submit-btn" id="submitBtn">
+      <button type="submit" class="form-submit-btn" id="submitBtn" data-i18n="contact.form.submit">
         Send message →
       </button>
-      <p class="form-note">No spam, ever. Just a reply from a human who loves this city.</p>
+      <p class="form-note" data-i18n="contact.form.note">No spam, ever. Just a reply from a human who loves this city.</p>
     </form>
 
   </div>
 </div>
 
 <footer>
-  <p>© 2025 Viacalli — Mexico City</p>
+  <p data-i18n="footer.copy">© 2025 Viacalli — Mexico City</p>
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
+
+<script src="lang.js"></script>
 
 <script>
 // ── TOUR PRESELECTION from URL param ──
