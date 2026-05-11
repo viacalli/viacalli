@@ -16,7 +16,7 @@
   align-items: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   padding-left: 2rem;
   padding-right: 2rem;
 }
@@ -307,6 +307,7 @@
   grid-template-columns: repeat(7, calc((100% - 2 * 1.2rem) / 3));
   gap: 1.2rem;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 @media (max-width: 768px) {
@@ -562,32 +563,97 @@ setInterval(() => {
 <script>
 (function() {
   var hamburger = document.getElementById('navHamburger');
-  var navLinks  = document.getElementById('navLinks');
-  if (!hamburger || !navLinks) return;
+  if (!hamburger) return;
+
+  // Create fullscreen overlay programmatically — fuera de cualquier stacking context
+  var overlay = document.createElement('div');
+  overlay.id = 'mobileMenuOverlay';
+  overlay.style.cssText = [
+    'display:none',
+    'position:fixed',
+    'top:0','left:0','right:0','bottom:0',
+    'background:#F0EFEA',
+    'z-index:9999',
+    'padding:5rem 2.5rem 3rem',
+    'box-sizing:border-box',
+    'overflow-y:auto',
+    'flex-direction:column',
+    'justify-content:center'
+  ].join(';');
+
+  var links = [
+    { href: 'index.html', label: 'Home' },
+    { href: 'tours.html', label: 'Tours' },
+    { href: 'about.html', label: 'About' },
+    { href: 'contact.html', label: 'Contact' },
+  ];
+
+  var ul = document.createElement('ul');
+  ul.style.cssText = 'list-style:none;margin:0;padding:0;';
+
+  links.forEach(function(item, i) {
+    var li = document.createElement('li');
+    li.style.cssText = 'border-bottom:1px solid rgba(175,164,206,0.2);' + (i===0 ? 'border-top:1px solid rgba(175,164,206,0.2);' : '');
+    var a = document.createElement('a');
+    a.href = item.href;
+    a.textContent = item.label;
+    a.style.cssText = [
+      'display:block',
+      'font-family:Nunito,sans-serif',
+      'font-size:2rem',
+      'font-weight:700',
+      'color:#2e2535',
+      'text-decoration:none',
+      'padding:0.75rem 0'
+    ].join(';');
+    a.addEventListener('click', closeMenu);
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+
+  // Lang toggle
+  var liLang = document.createElement('li');
+  liLang.style.cssText = 'margin-top:2rem;';
+  var btnLang = document.createElement('button');
+  btnLang.textContent = 'ES';
+  btnLang.style.cssText = [
+    'font-size:0.85rem',
+    'padding:0.5rem 1.4rem',
+    'border:1.5px solid rgba(175,164,206,0.45)',
+    'border-radius:999px',
+    'background:none',
+    'color:#AFA4CE',
+    'font-weight:700',
+    'letter-spacing:0.08em',
+    'cursor:pointer'
+  ].join(';');
+  // Wire up to existing langToggle logic if present
+  btnLang.addEventListener('click', function() {
+    var orig = document.getElementById('langToggle');
+    if (orig) orig.click();
+    closeMenu();
+  });
+  liLang.appendChild(btnLang);
+  ul.appendChild(liLang);
+
+  overlay.appendChild(ul);
+  document.body.appendChild(overlay);
+
+  function openMenu() {
+    overlay.style.display = 'flex';
+    hamburger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
   function closeMenu() {
+    overlay.style.display = 'none';
     hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
     document.body.style.overflow = '';
   }
 
   hamburger.addEventListener('click', function(e) {
     e.stopPropagation();
-    var isOpen = navLinks.classList.toggle('open');
-    hamburger.classList.toggle('open');
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  });
-
-  navLinks.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', closeMenu);
-  });
-
-  document.addEventListener('click', function(e) {
-    if (navLinks.classList.contains('open') &&
-        !navLinks.contains(e.target) &&
-        !hamburger.contains(e.target)) {
-      closeMenu();
-    }
+    overlay.style.display === 'none' ? openMenu() : closeMenu();
   });
 
   document.addEventListener('keydown', function(e) {
