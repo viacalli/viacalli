@@ -200,26 +200,74 @@ footer a:hover { color: #fff; }
 @media (max-width: 768px) {
   nav { padding: 0.9rem 1.2rem; }
   .nav-logo img { height: 28px; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; z-index: 200; }
+
+  /* Apple-style fullscreen menu */
   .nav-links {
     display: none !important;
     flex-direction: column;
     position: fixed;
-    top: 56px; left: 0; right: 0; bottom: 0;
-    background: rgba(240, 239, 234, 0.98);
-    backdrop-filter: blur(12px);
-    align-items: center;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    align-items: flex-start;
     justify-content: center;
-    gap: 2rem;
-    z-index: 99;
+    gap: 0;
+    z-index: 150;
     list-style: none;
     margin: 0;
-    padding: 1rem 0 2rem;
+    padding: 5rem 2.5rem 3rem;
   }
+
   .nav-links.open { display: flex !important; }
-  .nav-links > li { display: block !important; list-style: none; text-align: center; width: 100%; }
-  .nav-links > li > a { font-size: 1.4rem; padding: 0.5rem 1rem; color: var(--ink); display: block; text-decoration: none; }
-  .nav-links > li > button.lang-toggle { font-size: 1.1rem; padding: 0.5rem 2rem; margin: 0; }
-  .lang-toggle { font-size: 1rem; padding: 0.5rem 1.5rem; margin-left: 0; }
+
+  .nav-links > li {
+    display: block !important;
+    list-style: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(175,164,206,0.2);
+  }
+
+  .nav-links > li:first-child {
+    border-top: 1px solid rgba(175,164,206,0.2);
+  }
+
+  .nav-links > li > a {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 0.75rem 0;
+    color: var(--ink);
+    display: block;
+    text-decoration: none;
+    background: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links > li > a:hover,
+  .nav-links > li > a.active {
+    color: var(--lav-dark);
+    background: none;
+  }
+
+  /* Lang toggle — separated at bottom */
+  .nav-links > li:last-child {
+    border: none;
+    margin-top: 2rem;
+  }
+
+  .nav-links > li > button.lang-toggle {
+    font-size: 0.85rem;
+    padding: 0.5rem 1.4rem;
+    margin: 0;
+    border: 1.5px solid rgba(175,164,206,0.45);
+    border-radius: 999px;
+    background: none;
+    color: var(--lav-dark);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    display: inline-block;
+  }
+
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
 }
