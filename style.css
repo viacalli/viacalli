@@ -202,23 +202,24 @@ footer a:hover { color: #fff; }
   .nav-logo img { height: 28px; }
   .nav-hamburger { display: flex; }
   .nav-links {
-    display: none;
+    display: none !important;
     flex-direction: column;
     position: fixed;
     top: 56px; left: 0; right: 0; bottom: 0;
     background: rgba(240, 239, 234, 0.98);
     backdrop-filter: blur(12px);
-    justify-content: center;
     align-items: center;
-    gap: 2.5rem;
+    justify-content: center;
+    gap: 2rem;
     z-index: 99;
     list-style: none;
-    padding: 2rem 0;
-    overflow-y: auto;
+    margin: 0;
+    padding: 1rem 0 2rem;
   }
-  .nav-links.open { display: flex; }
-  .nav-links li { display: block; list-style: none; text-align: center; }
-  .nav-links a { font-size: 1.4rem; padding: 0.4rem 1rem; color: var(--ink); display: block; }
+  .nav-links.open { display: flex !important; }
+  .nav-links > li { display: block !important; list-style: none; text-align: center; width: 100%; }
+  .nav-links > li > a { font-size: 1.4rem; padding: 0.5rem 1rem; color: var(--ink); display: block; text-decoration: none; }
+  .nav-links > li > button.lang-toggle { font-size: 1.1rem; padding: 0.5rem 2rem; margin: 0; }
   .lang-toggle { font-size: 1rem; padding: 0.5rem 1.5rem; margin-left: 0; }
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
 }
