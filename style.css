@@ -200,11 +200,12 @@ footer a:hover { color: #fff; }
 @media (max-width: 768px) {
   nav { padding: 0.9rem 1.2rem; }
   .nav-logo img { height: 28px; }
-  .nav-hamburger { display: flex; z-index: 200; }
+  .nav-hamburger { display: flex; }
 
-  /* Apple-style fullscreen menu */
   .nav-links {
-    display: none !important;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -212,13 +213,19 @@ footer a:hover { color: #fff; }
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    z-index: 999;
+    z-index: 9999;
     list-style: none;
     margin: 0;
     padding: 5rem 2.5rem 3rem;
+    transition: opacity 0.2s, visibility 0.2s;
   }
 
-  .nav-links.open { display: flex !important; }
+  .nav-links.open {
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    display: flex !important;
+  }
 
   .nav-links > li {
     display: block !important;
@@ -239,17 +246,16 @@ footer a:hover { color: #fff; }
     color: var(--ink);
     display: block;
     text-decoration: none;
-    background: none;
+    background: none !important;
     transition: color 0.15s;
   }
 
   .nav-links > li > a:hover,
   .nav-links > li > a.active {
     color: var(--lav-dark);
-    background: none;
+    background: none !important;
   }
 
-  /* Lang toggle — separated at bottom */
   .nav-links > li:last-child {
     border: none;
     margin-top: 2rem;
