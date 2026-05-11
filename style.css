@@ -210,11 +210,14 @@ footer a:hover { color: #fff; }
     backdrop-filter: blur(12px);
     justify-content: center;
     align-items: center;
-    gap: 0.8rem;
+    gap: 2rem;
     z-index: 150;
+    list-style: none;
+    padding: 0;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { font-size: 1.2rem; padding: 0.6rem 2rem; }
+  .nav-links li { display: list-item; list-style: none; }
+  .nav-links a { font-size: 1.4rem; padding: 0.4rem 1rem; color: var(--ink); }
   .lang-toggle { font-size: 1rem; padding: 0.5rem 1.5rem; margin-left: 0; }
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
 }
