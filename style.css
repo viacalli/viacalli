@@ -182,7 +182,8 @@ footer a:hover { color: #fff; }
   border: none;
   cursor: pointer;
   padding: 0.4rem;
-  z-index: 200;
+  z-index: 10001; /* always above the overlay */
+  position: relative;
 }
 .nav-hamburger span {
   display: block;
@@ -192,13 +193,19 @@ footer a:hover { color: #fff; }
   border-radius: 2px;
   transition: all 0.25s;
 }
+/* When menu is open, turn lines into X and make them dark on cream bg */
+.nav-hamburger.open span { background: var(--ink); }
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  nav { padding: 0.9rem 1.2rem; overflow: visible; }
+  nav {
+    padding: 0.9rem 1.2rem;
+    overflow: visible;
+    z-index: 10000; /* nav bar itself sits above overlay */
+  }
   .nav-logo img { height: 28px; }
   .nav-hamburger { display: flex; }
 
@@ -207,7 +214,7 @@ footer a:hover { color: #fff; }
     flex-direction: column;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: #F0EFEA;
+    background: var(--cream); /* solid, no transparency */
     align-items: flex-start;
     justify-content: center;
     gap: 0;
@@ -215,10 +222,16 @@ footer a:hover { color: #fff; }
     list-style: none;
     margin: 0;
     padding: 5rem 2.5rem 3rem;
+    /* Subtle entrance animation */
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
   .nav-links.open {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .nav-links > li {

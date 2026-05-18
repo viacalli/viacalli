@@ -564,18 +564,21 @@ setInterval(() => {
 (function() {
   var hamburger = document.getElementById('navHamburger');
   var navLinks  = document.getElementById('navLinks');
+  var nav       = document.querySelector('nav');
   if (!hamburger || !navLinks) return;
 
   function openMenu() {
     hamburger.classList.add('open');
     navLinks.classList.add('open');
     navLinks.style.display = 'flex';
+    if (nav) nav.style.zIndex = '10000';
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
+    if (nav) nav.style.zIndex = '';
     document.body.style.overflow = '';
   }
 
