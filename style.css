@@ -182,8 +182,6 @@ footer a:hover { color: #fff; }
   border: none;
   cursor: pointer;
   padding: 0.4rem;
-  position: relative;
-  z-index: 100;
 }
 .nav-hamburger span {
   display: block;
@@ -193,102 +191,107 @@ footer a:hover { color: #fff; }
   border-radius: 2px;
   transition: all 0.25s;
 }
-.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ── MOBILE MENU CLOSE BUTTON ── */
-.mobile-menu-close {
+/* ── DESKTOP NAV LINKS ── */
+.nav-desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-desktop-links a {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-desktop-links a:hover,
+.nav-desktop-links a.active {
+  background: var(--lav-dark);
+  color: #fff;
+}
+
+/* ── MOBILE DIALOG MENU ── */
+#mobileMenuDialog {
+  display: block;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--cream);
+  position: fixed;
+  inset: 0;
+}
+#mobileMenuDialog::backdrop {
+  background: rgba(0,0,0,0.3);
+}
+#mobileMenuDialog:not([open]) {
   display: none;
+}
+.dialog-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.4rem;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: var(--ink);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.3rem;
+}
+.dialog-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 5rem 2.5rem 3rem;
+  gap: 0;
+}
+.dialog-nav a {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+  color: var(--ink);
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(175,164,206,0.2);
+  transition: color 0.15s;
+}
+.dialog-nav a:first-child {
+  border-top: 1px solid rgba(175,164,206,0.2);
+}
+.dialog-nav a:hover,
+.dialog-nav a.active {
+  color: var(--lav-dark);
+}
+.dialog-nav .lang-toggle {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 1.4rem;
+  border: 1.5px solid rgba(175,164,206,0.45);
+  border-radius: 999px;
+  background: none;
+  color: var(--lav-dark);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--sans);
 }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
-  nav { padding: 0.9rem 1.2rem; overflow: visible; z-index: 100; }
+  nav { padding: 0.9rem 1.2rem; }
   .nav-logo img { height: 28px; }
   .nav-hamburger { display: flex; }
-
-  /* The overlay menu — lives outside <nav> in the DOM */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: var(--cream);
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0;
-    z-index: 9000;
-    list-style: none;
-    margin: 0;
-    padding: 6rem 2.5rem 3rem;
-  }
-
-  .nav-links.open { display: flex; }
-
-  /* Close (X) button inside the overlay */
-  .mobile-menu-close {
-    display: block;
-    position: absolute;
-    top: 1.1rem;
-    right: 1.2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--ink);
-    line-height: 1;
-    padding: 0.4rem;
-    z-index: 9001;
-  }
-
-  .nav-links > li {
-    display: block !important;
-    list-style: none;
-    width: 100%;
-    border-bottom: 1px solid rgba(175,164,206,0.2);
-  }
-
-  .nav-links > li:first-child {
-    border-top: 1px solid rgba(175,164,206,0.2);
-  }
-
-  .nav-links > li > a {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 700;
-    padding: 0.75rem 0;
-    color: var(--ink);
-    display: block;
-    text-decoration: none;
-    background: none !important;
-    transition: color 0.15s;
-  }
-
-  .nav-links > li > a:hover,
-  .nav-links > li > a.active {
-    color: var(--lav-dark);
-    background: none !important;
-  }
-
-  .nav-links > li:last-child {
-    border: none;
-    margin-top: 2rem;
-  }
-
-  .nav-links > li > button.lang-toggle {
-    font-size: 0.85rem;
-    padding: 0.5rem 1.4rem;
-    margin: 0;
-    border: 1.5px solid rgba(175,164,206,0.45);
-    border-radius: 999px;
-    background: none;
-    color: var(--lav-dark);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    display: inline-block;
-  }
-
+  .nav-desktop-links { display: none; }
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.6rem; text-align: center; }
 }

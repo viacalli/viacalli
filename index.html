@@ -371,18 +371,27 @@
 
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.svg" alt="Viacalli" style="height:38px; width:auto; display:block;"></a>
+  <div class="nav-desktop-links" id="desktopNav">
+    <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+    <a href="tours.html" data-i18n="nav.tours">Tours</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <button id="langToggleDesktop" class="lang-toggle" aria-label="Cambiar a español">ES</button>
+  </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<ul class="nav-links" id="navLinks">
-  <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">✕</button>
-    <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
-    <li><a href="tours.html" data-i18n="nav.tours">Tours</a></li>
-    <li><a href="about.html" data-i18n="nav.about">About</a></li>
-    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-    <li><button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button></li>
-</ul>
+<dialog id="mobileMenuDialog">
+  <button class="dialog-close" id="dialogClose" aria-label="Close menu">✕</button>
+  <nav class="dialog-nav">
+    <a href="index.html" class="active" data-i18n="nav.home">Home</a>
+    <a href="tours.html" data-i18n="nav.tours">Tours</a>
+    <a href="about.html" data-i18n="nav.about">About</a>
+    <a href="contact.html" data-i18n="nav.contact">Contact</a>
+    <button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button>
+  </nav>
+</dialog>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -564,35 +573,32 @@ setInterval(() => {
 <script>
 (function() {
   var hamburger = document.getElementById('navHamburger');
-  var navLinks  = document.getElementById('navLinks');
-  var closeBtn  = document.getElementById('mobileClose');
-  if (!hamburger || !navLinks) return;
+  var dialog    = document.getElementById('mobileMenuDialog');
+  var closeBtn  = document.getElementById('dialogClose');
+  if (!hamburger || !dialog) return;
 
-  function openMenu() {
-    hamburger.classList.add('open');
-    navLinks.classList.add('open');
+  hamburger.addEventListener('click', function() {
+    dialog.showModal();
     document.body.style.overflow = 'hidden';
-  }
+  });
 
-  function closeMenu() {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('open');
+  function closeDialog() {
+    dialog.close();
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', function(e) {
-    e.stopPropagation();
-    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  if (closeBtn) closeBtn.addEventListener('click', closeDialog);
+
+  dialog.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeDialog);
   });
 
-  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-  navLinks.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', closeMenu);
+  dialog.addEventListener('click', function(e) {
+    if (e.target === dialog) closeDialog();
   });
 
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape') { document.body.style.overflow = ''; }
   });
 })();
 </script>

@@ -197,8 +197,10 @@ const I18N = {
 
   init() {
     this.apply();
-    const btn = document.getElementById('langToggle');
-    if (btn) btn.addEventListener('click', () => this.toggle());
+    ['langToggle', 'langToggleDesktop'].forEach((id) => {
+      const btn = document.getElementById(id);
+      if (btn) btn.addEventListener('click', () => this.toggle());
+    });
   }
 };
 
