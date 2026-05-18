@@ -200,14 +200,15 @@
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <ul class="nav-links" id="navLinks">
+</nav>
+<ul class="nav-links" id="navLinks">
+  <button class="mobile-menu-close" id="mobileClose" aria-label="Close menu">✕</button>
     <li><a href="index.html" data-i18n="nav.home">Home</a></li>
     <li><a href="tours.html" data-i18n="nav.tours">Tours</a></li>
     <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
     <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
     <li><button id="langToggle" class="lang-toggle" aria-label="Cambiar a español">ES</button></li>
-  </ul>
-</nav>
+</ul>
 
 <div class="page-header">
   <span class="eyebrow" data-i18n="about.eyebrow">About Viacalli</span>
@@ -282,21 +283,18 @@
 (function() {
   var hamburger = document.getElementById('navHamburger');
   var navLinks  = document.getElementById('navLinks');
-  var nav       = document.querySelector('nav');
+  var closeBtn  = document.getElementById('mobileClose');
   if (!hamburger || !navLinks) return;
 
   function openMenu() {
     hamburger.classList.add('open');
     navLinks.classList.add('open');
-    navLinks.style.display = 'flex';
-    if (nav) nav.style.zIndex = '10000';
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
-    if (nav) nav.style.zIndex = '';
     document.body.style.overflow = '';
   }
 
@@ -304,6 +302,8 @@
     e.stopPropagation();
     navLinks.classList.contains('open') ? closeMenu() : openMenu();
   });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
   navLinks.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', closeMenu);
