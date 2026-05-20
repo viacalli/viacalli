@@ -163,11 +163,11 @@ footer {
 
 footer p {
   font-size: 0.8rem;
-  color: var(--lav-light);
+  color: var(--green-light);
 }
 
 footer a {
-  color: var(--lav-dark);
+  color: var(--green);
   text-decoration: none;
   transition: color 0.2s;
 }
