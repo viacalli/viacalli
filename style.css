@@ -154,7 +154,7 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  background: var(--ink);
+  background: #C4847A;
   padding: 2.5rem 3.5rem;
   display: flex;
   justify-content: space-between;
@@ -163,11 +163,11 @@ footer {
 
 footer p {
   font-size: 0.8rem;
-  color: #dde8d8;
+  color: #2e2535;
 }
 
 footer a {
-  color: #7A9363;
+  color: #2e2535;
   text-decoration: none;
   transition: color 0.2s;
 }
