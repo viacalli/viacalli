@@ -3,12 +3,12 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --lav-dark:  #AFA4CE;
-  --lav-light: #C4BEDC;
+  --lav-dark:  #7A9363;
+  --lav-light: #9DB88A;
   --cream:     #F0EFEA;
   --ink:       #2e2535;
   --muted:     #7a6e82;
-  --soft:      #e8e3f0;
+  --soft:      #dde8d8;
   --white:     #faf9f7;
   --serif:     'Nunito', sans-serif;
   --sans:      'Nunito Sans', sans-serif;
@@ -36,7 +36,7 @@ nav {
   padding: 1.2rem 3.5rem;
   background: rgba(240, 239, 234, 0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(191,154,200,0.2);
+  border-bottom: 1px solid rgba(122,147,99,0.2);
 }
 
 .nav-logo {
@@ -82,7 +82,7 @@ nav {
 /* ── LANGUAGE TOGGLE ── */
 .lang-toggle {
   background: transparent;
-  border: 1.5px solid rgba(175,164,206,0.45);
+  border: 1.5px solid rgba(122,147,99,0.45);
   border-radius: 999px;
   color: var(--lav-dark);
   font-family: var(--sans);
@@ -125,7 +125,7 @@ nav {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 4px 20px rgba(191,154,200,0.45);
+  box-shadow: 0 4px 20px rgba(122,147,99,0.45);
   transform: translateY(-1px);
 }
 
@@ -262,11 +262,11 @@ footer a:hover { color: #fff; }
   color: var(--ink);
   display: block;
   text-decoration: none;
-  border-bottom: 1px solid rgba(175,164,206,0.2);
+  border-bottom: 1px solid rgba(122,147,99,0.2);
   transition: color 0.15s;
 }
 .dialog-nav a:first-child {
-  border-top: 1px solid rgba(175,164,206,0.2);
+  border-top: 1px solid rgba(122,147,99,0.2);
 }
 .dialog-nav a:hover,
 .dialog-nav a.active {
@@ -276,7 +276,7 @@ footer a:hover { color: #fff; }
   margin-top: 2rem;
   font-size: 0.85rem;
   padding: 0.5rem 1.4rem;
-  border: 1.5px solid rgba(175,164,206,0.45);
+  border: 1.5px solid rgba(122,147,99,0.45);
   border-radius: 999px;
   background: none;
   color: var(--lav-dark);
