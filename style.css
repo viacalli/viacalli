@@ -409,14 +409,14 @@ body::after {
   z-index: 2;
 }
 
-/* Colores únicos por tour */
-.tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(160deg, rgba(161,75,71,0.88) 0%, rgba(130,50,50,0.95) 100%); }
-.tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(160deg, rgba(122,147,99,0.88) 0%, rgba(80,110,65,0.95) 100%); }
-.tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(160deg, rgba(100,90,160,0.88) 0%, rgba(70,60,130,0.95) 100%); }
-.tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(160deg, rgba(180,130,50,0.88) 0%, rgba(140,95,20,0.95) 100%); }
-.tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(160deg, rgba(175,164,206,0.88) 0%, rgba(110,95,160,0.95) 100%); }
-.tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(160deg, rgba(190,100,60,0.88) 0%, rgba(150,65,30,0.95) 100%); }
-.tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(160deg, rgba(60,80,100,0.88) 0%, rgba(30,45,65,0.95) 100%); }
+/* Fotos reales con overlay oscuro por tour */
+.tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/frida.jpeg') center/cover no-repeat; }
+.tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/bellas.jpeg') center/cover no-repeat; }
+.tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/munal.jpeg') center/cover no-repeat; }
+.tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/antopologia.png') center/cover no-repeat; }
+.tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/ortega.jpg') center/cover no-repeat; }
+.tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/gastronomico.jpg') center/cover no-repeat; }
+.tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/photo.jpg') center/cover no-repeat; }
 
 .tour-preview-card:hover .card-hover-overlay {
   opacity: 1;
