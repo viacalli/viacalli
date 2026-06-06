@@ -568,6 +568,107 @@ setInterval(() => {
 
 
 
+<!-- ============================================================
+     VIACALLI — EFECTOS JS
+     Pega este bloque ANTES de </body> en tu index.html,
+     justo después del script existente del carousel.
+     ============================================================ -->
+
+<script>
+(function () {
+
+  /* ── 1. HERO — partir el h1 en dos líneas animadas ──
+     Busca el h1 del hero y envuelve cada span en .line1 / .line2
+     SOLO si no lo has hecho ya en el HTML.
+     Si prefieres hacerlo directo en el HTML, salta este bloque
+     y añade class="line1" / class="line2" a los spans tú mismo. */
+  const heroH1 = document.querySelector('.hero h1');
+  if (heroH1) {
+    const spans = heroH1.querySelectorAll('span[data-i18n]');
+    if (spans.length >= 2) {
+      spans[0].classList.add('line1');
+      spans[1].classList.add('line2');
+    }
+  }
+
+  /* ── 2. CAROUSEL CARDS — inyectar overlay HTML ──
+     Añade el div .card-hover-overlay a cada tour card
+     con el ícono y título ya presentes en la card. */
+  document.querySelectorAll('.tour-preview-card').forEach(function (card) {
+    const iconEl = card.querySelector('.tour-icon');
+    const titleEl = card.querySelector('h3');
+    if (!iconEl || !titleEl || card.querySelector('.card-hover-overlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'card-hover-overlay';
+    overlay.innerHTML =
+      '<span class="overlay-icon">' + iconEl.textContent + '</span>' +
+      '<p class="overlay-title">' + titleEl.textContent + '</p>' +
+      '<span class="overlay-cta">Learn more →</span>';
+    card.appendChild(overlay);
+  });
+
+  /* ── 3. ABOUT CARD — parallax tilt 3D ── */
+  const aboutCard = document.querySelector('.about-card');
+  if (aboutCard) {
+    aboutCard.addEventListener('mousemove', function (e) {
+      const r = aboutCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      aboutCard.style.transform =
+        'perspective(700px) rotateY(' + (x * 9) + 'deg) rotateX(' + (-y * 7) + 'deg) translateY(-4px)';
+    });
+    aboutCard.addEventListener('mouseleave', function () {
+      aboutCard.style.transform =
+        'perspective(700px) rotateY(0deg) rotateX(0deg) translateY(0)';
+    });
+  }
+
+  /* ── 4. SCROLL REVEAL — para secciones ── */
+  var revealEls = document.querySelectorAll('.about-teaser, .tours-preview .section-header');
+  revealEls.forEach(function (el) { el.classList.add('reveal'); });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(function (el) { observer.observe(el); });
+
+  /* ── 5. CONTADORES numéricos en el intro-strip ── */
+  function animateCount(el, target, duration, prefix, suffix) {
+    var start = performance.now();
+    function step(now) {
+      var t = Math.min((now - start) / duration, 1);
+      var eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // ease in-out
+      var val = Math.round(eased * target);
+      el.textContent = (prefix || '') + val + (suffix || '');
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var stripObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var items = entry.target.querySelectorAll('.strip-num');
+      // +7  |  6  |  EN / ES
+      if (items[0]) animateCount(items[0], 7, 800, '+', '');
+      if (items[1]) animateCount(items[1], 6, 600, '', '');
+      // items[2] es "EN / ES" — no se anima
+      stripObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  var strip = document.querySelector('.intro-strip');
+  if (strip) stripObserver.observe(strip);
+
+})();
+</script>
 
 <script src="lang.js"></script>
 <script>
