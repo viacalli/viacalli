@@ -413,7 +413,7 @@ body::after {
 .tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/frida.jpeg') center/cover no-repeat; }
 .tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/bellas.jpeg') center/cover no-repeat; }
 .tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/munal.jpeg') center/cover no-repeat; }
-.tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/antopologia.png') center/cover no-repeat; }
+.tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/antropologia.png') center/cover no-repeat; }
 .tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/ortega.jpg') center/cover no-repeat; }
 .tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/gastronomico.jpg') center/cover no-repeat; }
 .tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.7)), url('img/photo.jpg') center/cover no-repeat; }
