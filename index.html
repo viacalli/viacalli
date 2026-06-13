@@ -605,7 +605,7 @@ setInterval(() => {
       '<span class="overlay-icon">' + iconEl.textContent + '</span>' +
       '<p class="overlay-title">' + titleEl.textContent + '</p>' +
       '<span class="overlay-cta">Learn more →</span>';
-    card.appendChild(overlay);
+    card.insertBefore(overlay, card.firstChild);
   });
 
   /* ── 3. ABOUT CARD — parallax tilt 3D ── */
