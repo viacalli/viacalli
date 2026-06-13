@@ -701,9 +701,6 @@ body::after {
     padding-right: 1.25rem;
   }
  
-
- 
-}
  
 /* ── EXTRA SMALL (iPhone SE, pantallas < 390px) ── */
 @media (max-width: 390px) {
