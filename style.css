@@ -701,15 +701,7 @@ body::after {
     padding-right: 1.25rem;
   }
  
-  /* ── ACENTO VISUAL: línea terracota bajo el nav ── */
-  header::after,
-  nav::after {
-    content: '';
-    display: block;
-    height: 2px;
-    background: linear-gradient(to right, var(--lav-dark, #A14B47), transparent);
-    opacity: 0.25;
-  }
+
  
 }
  
