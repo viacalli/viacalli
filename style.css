@@ -488,6 +488,10 @@ body::after {
  
 @media (max-width: 768px) {
  
+nav {
+    position: relative;
+  }
+  
   /* ── HERO ── */
  
   /* Reducir espacio encima del tag */
