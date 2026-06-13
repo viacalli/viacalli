@@ -225,20 +225,49 @@
   <p data-i18n="about.sub">Viacalli is not a tourism company. It's a practice of reading urban space — and sharing that reading with people who are ready to look closely.</p>
 </div>
 
+<!-- ============================================================
+     VIACALLI — CARRUSEL DE GUÍAS
+     Reemplaza TODA la sección <section class="bio-section">
+     en tu about.html con este bloque
+     ============================================================ -->
+
 <section class="bio-section">
   <div class="bio-left">
-    <div class="bio-avatar">✦</div>
+
+    <!-- Carrusel de fotos -->
+    <div class="guides-carousel">
+      <div class="guides-track" id="guidesTrack">
+        <div class="guide-slide">
+          <img src="img/1.jpg" alt="Guide 1" class="guide-photo">
+        </div>
+        <div class="guide-slide">
+          <img src="img/2.jpg" alt="Guide 2" class="guide-photo">
+        </div>
+        <div class="guide-slide">
+          <img src="img/3.jpg" alt="Guide 3" class="guide-photo">
+        </div>
+      </div>
+
+      <!-- Dots de navegación -->
+      <div class="guides-dots">
+        <button class="guide-dot active" data-index="0"></button>
+        <button class="guide-dot" data-index="1"></button>
+        <button class="guide-dot" data-index="2"></button>
+      </div>
+    </div>
+
     <div class="bio-name">Your Guides</div>
     <div class="bio-title" data-i18n="about.bio.title">— Local Companion — Mexico City</div>
     <a href="contact.html" class="bio-contact-link">hello@viacalli.com →</a>
   </div>
+
   <div class="bio-right">
     <h2 data-i18n="about.bio.h2">Not a tour guide in the conventional sense.</h2>
     <p>
       We are readers of cities — trained to notice what most people walk past: the structural logic of a facade, the political subtext of a mural, the quiet stories embedded in a neighborhood.
     </p>
     <p>
-      Viacalli was born from years of guiding curious travelers through Mexico City’s most extraordinary spaces — and from the belief that meaningful experiences should be accessible to anyone willing to look deeper.
+      Viacalli was born from years of guiding curious travelers through Mexico City's most extraordinary spaces — and from the belief that meaningful experiences should be accessible to anyone willing to look deeper.
     </p>
     <p>
       These tours are not itineraries with a fixed set of facts. They are conversations, shaped by who is in the group. Everyone brings a different perspective to the city — and that difference is part of what makes every tour unique. 
@@ -247,12 +276,49 @@
       Over the years, we have guided visitors from across the world — including architects, artists, students, journalists, and first-time travelers to Mexico City. Every tour becomes a different way of understanding the city, shaped by the people exploring it together.
     </p>
     <p>
-      Mexico City is one of the world's most layered and emotionally complex urban environments. <strong>We've spent years learning to read it. We'd like to share that reading with you. </strong>
+      Mexico City is one of the world's most layered and emotionally complex urban environments. <strong>We've spent years learning to read it. We'd like to share that reading with you.</strong>
     </p>
     <br>
     <a href="tours.html" class="btn btn-primary" data-i18n="about.bio.cta">See our tours →</a>
   </div>
 </section>
+
+<!-- Script del carrusel de guías -->
+<script>
+(function () {
+  var track = document.getElementById('guidesTrack');
+  var dots = document.querySelectorAll('.guide-dot');
+  var current = 0;
+  var total = 3;
+  var timer;
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+
+  function next() {
+    goTo((current + 1) % total);
+  }
+
+  function startTimer() {
+    timer = setInterval(next, 3500);
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      clearInterval(timer);
+      goTo(parseInt(dot.dataset.index));
+      startTimer();
+    });
+  });
+
+  startTimer();
+})();
+</script>
 
 <section class="values-section">
   <h2 data-i18n="about.values.h2">How we work</h2>
