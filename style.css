@@ -806,3 +806,76 @@ body::after {
   }
 
 }
+/* ============================================================
+   VIACALLI — CARRUSEL DE GUÍAS
+   Pega al final de tu style.css
+   ============================================================ */
+
+/* Contenedor del carrusel */
+.guides-carousel {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 1.5rem;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Track que se desliza */
+.guides-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Cada slide ocupa el 100% del ancho */
+.guide-slide {
+  min-width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+/* Foto */
+.guide-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.guide-slide:hover .guide-photo {
+  transform: scale(1.03);
+}
+
+/* Dots de navegación */
+.guides-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0 0.25rem;
+}
+
+.guide-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(161, 75, 71, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.guide-dot.active {
+  background: var(--lav-dark, #A14B47);
+  transform: scale(1.25);
+}
+
+/* Mobile — carrusel más pequeño */
+@media (max-width: 768px) {
+  .guides-carousel {
+    max-width: 220px;
+  }
+}
