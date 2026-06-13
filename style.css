@@ -729,12 +729,11 @@ body::after {
 }
 /* ============================================================
    VIACALLI — FOTOS SIEMPRE VISIBLES EN CAROUSEL (MOBILE)
-   Reemplaza el archivo CAROUSEL-MOBILE-fotos.css anterior
+   Reemplaza el bloque anterior en tu style.css
    ============================================================ */
 
 @media (max-width: 768px) {
 
-  /* La card se convierte en contenedor de foto */
   .tour-preview-card {
     min-height: 340px;
     position: relative;
@@ -742,66 +741,68 @@ body::after {
     border-radius: 20px;
   }
 
-  /* Overlay siempre visible */
+  /* Forzar overlay siempre visible */
   .tour-preview-card .card-hover-overlay {
     opacity: 1 !important;
     transform: translateY(0) !important;
-    position: absolute;
-    inset: 0;
+    position: absolute !important;
+    inset: 0 !important;
     border-radius: 20px;
     pointer-events: none;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 1.5rem 1.25rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+    padding: 1.5rem 1.25rem !important;
     z-index: 2;
   }
 
-  /* Ocultar contenido original debajo del overlay */
+  /* Ocultar contenido original */
   .tour-preview-card .tour-icon,
   .tour-preview-card h3,
   .tour-preview-card p,
   .tour-preview-card .tour-link-arrow {
-    opacity: 0;
+    opacity: 0 !important;
     pointer-events: none;
   }
 
-  /* Fotos con gradiente de abajo hacia arriba */
-  .tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/frida.jpeg') center/cover no-repeat; }
-  .tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/bellas.jpeg') center/cover no-repeat; }
-  .tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/munal.jpeg') center/cover no-repeat; }
-  .tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/antropologia.png') center/cover no-repeat; }
-  .tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/ortega.jpg') center/cover no-repeat; }
-  .tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/gastronomico.jpg') center/cover no-repeat; }
-  .tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/photo.jpg') center/cover no-repeat; }
+  /* Fotos con gradiente */
+  .tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/frida.jpeg') center/cover no-repeat !important; }
+  .tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/bellas.jpeg') center/cover no-repeat !important; }
+  .tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/munal.jpeg') center/cover no-repeat !important; }
+  .tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/antropologia.png') center/cover no-repeat !important; }
+  .tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/ortega.jpg') center/cover no-repeat !important; }
+  .tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/gastronomico.jpg') center/cover no-repeat !important; }
+  .tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.78) 100%), url('img/photo.jpg') center/cover no-repeat !important; }
 
-  /* Emoji pequeño */
-  .card-hover-overlay .overlay-icon {
-    font-size: 1.4rem;
-    margin-bottom: 0.4rem;
+  /* Texto del overlay — forzar visibilidad */
+  .tour-preview-card .card-hover-overlay .overlay-icon {
+    opacity: 1 !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 0.4rem !important;
     transform: scale(1) !important;
-    display: block;
+    display: block !important;
+    color: #fff !important;
   }
 
-  /* Título visible y legible */
-  .card-hover-overlay .overlay-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.2;
-    margin-bottom: 0.4rem;
-    display: block;
+  .tour-preview-card .card-hover-overlay .overlay-title {
+    opacity: 1 !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #fff !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.4rem !important;
+    display: block !important;
   }
 
-  /* CTA */
-  .card-hover-overlay .overlay-cta {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    display: block;
+  .tour-preview-card .card-hover-overlay .overlay-cta {
+    opacity: 1 !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: rgba(255,255,255,0.85) !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    display: block !important;
   }
 
 }
