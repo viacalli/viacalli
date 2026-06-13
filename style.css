@@ -480,3 +480,250 @@ body::after {
     transform: translateY(0);
   }
 }
+/* ============================================================
+   VIACALLI — MEJORAS MOBILE
+   Pega este bloque al FINAL de tu style.css,
+   DESPUÉS del bloque de animaciones que ya agregaste.
+   ============================================================ */
+ 
+@media (max-width: 768px) {
+ 
+  /* ── HERO ── */
+ 
+  /* Reducir espacio encima del tag */
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+ 
+  .hero-tag {
+    margin: 0 auto 1.2rem;
+    display: inline-flex;
+  }
+ 
+  /* h1 más compacto — menos espacio entre líneas */
+  .hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.08;
+    margin-bottom: 1rem;
+  }
+ 
+  /* Subtítulo más pequeño y compacto */
+  .hero-sub {
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+ 
+  /* Botones: uno arriba del otro, tamaño completo */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    width: 100%;
+  }
+ 
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline,
+  .hero-actions a {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+  }
+ 
+  /* Botón primario más prominente */
+  .hero-actions a:first-child {
+    background: var(--lav-dark, #A14B47);
+    color: #fff;
+    font-weight: 700;
+  }
+ 
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    margin-top: 1.5rem;
+  }
+ 
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0;
+    border-radius: 16px;
+    margin: 0 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+ 
+  .intro-strip .strip-item {
+    padding: 1.2rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+ 
+  .intro-strip .strip-num {
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+ 
+  .intro-strip .strip-label {
+    font-size: 0.62rem;
+    line-height: 1.3;
+    text-align: center;
+  }
+ 
+  /* ── ABOUT / APPROACH SECTION ── */
+  .about-teaser {
+    padding: 2.5rem 1.25rem;
+  }
+ 
+  .about-teaser h2 {
+    font-size: 1.9rem;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+ 
+  /* La tarjeta de la cita — más compacta */
+  .about-card {
+    margin-top: 1.5rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+  }
+ 
+  .about-card blockquote,
+  .about-card .card-quote {
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+ 
+  /* ── CAROUSEL DE TOURS ── */
+  .tours-preview {
+    padding: 2rem 0 2.5rem;
+  }
+ 
+  .tours-preview .section-header {
+    padding: 0 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .tours-preview .section-header h2 {
+    font-size: 1.6rem;
+  }
+ 
+  /* Card del carousel más alta y visual en mobile */
+  .tour-preview-card {
+    border-radius: 20px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.75rem 1.5rem;
+  }
+ 
+  /* Ícono más grande */
+  .tour-preview-card .tour-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+    width: 52px;
+    height: 52px;
+    background: rgba(161,75,71,0.1);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+ 
+  .tour-preview-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+ 
+  .tour-preview-card p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+ 
+  /* En mobile: el overlay de foto se activa con tap (touch) */
+  /* Al tocar la card, el overlay aparece brevemente */
+  .tour-preview-card:active .card-hover-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+ 
+  /* Flechas de navegación del carousel más grandes y visibles */
+  .carousel-btn,
+  .carousel-prev,
+  .carousel-next {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+ 
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+ 
+  footer .footer-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+ 
+  /* ── TIPOGRAFÍA GENERAL MOBILE ── */
+  h2 {
+    font-size: 1.75rem;
+  }
+ 
+  h3 {
+    font-size: 1.15rem;
+  }
+ 
+  /* ── SECCIONES — menos padding vertical ── */
+  section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+ 
+  /* ── ACENTO VISUAL: línea terracota bajo el nav ── */
+  header::after,
+  nav::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, var(--lav-dark, #A14B47), transparent);
+    opacity: 0.25;
+  }
+ 
+}
+ 
+/* ── EXTRA SMALL (iPhone SE, pantallas < 390px) ── */
+@media (max-width: 390px) {
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+ 
+  .intro-strip .strip-num {
+    font-size: 1.5rem;
+  }
+ 
+  .intro-strip .strip-label {
+    font-size: 0.56rem;
+  }
+}
