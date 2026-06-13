@@ -726,4 +726,64 @@ body::after {
   .intro-strip .strip-label {
     font-size: 0.56rem;
   }
+}/* ============================================================
+   VIACALLI — FOTOS SIEMPRE VISIBLES EN CAROUSEL (MOBILE)
+   Pega este bloque al FINAL de tu style.css,
+   después del bloque de mejoras mobile que ya agregaste.
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* La card se convierte en contenedor de foto */
+  .tour-preview-card {
+    min-height: 340px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  /* El overlay con foto ocupa toda la card — siempre visible */
+  .tour-preview-card .card-hover-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+  }
+
+  /* El contenido original de la card se oculta
+     porque el overlay ya muestra ícono + título */
+  .tour-preview-card .tour-icon,
+  .tour-preview-card h3,
+  .tour-preview-card p,
+  .tour-preview-card .tour-link-arrow {
+    opacity: 0;
+  }
+
+  /* Overlay más oscuro abajo para que el texto se lea bien */
+  .tour-preview-card[href*="frida"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/frida.jpeg') center/cover no-repeat; }
+  .tour-preview-card[href*="bellas"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/bellas.jpeg') center/cover no-repeat; }
+  .tour-preview-card[href*="munal"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/munal.jpeg') center/cover no-repeat; }
+  .tour-preview-card[href*="antro"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/antropologia.png') center/cover no-repeat; }
+  .tour-preview-card[href*="barragan"] .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/ortega.jpg') center/cover no-repeat; }
+  .tour-preview-card[href*="gastro"]   .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/gastronomico.jpg') center/cover no-repeat; }
+  .tour-preview-card[href*="photo"]    .card-hover-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.72) 100%), url('img/photo.jpg') center/cover no-repeat; }
+
+  /* Ícono y texto del overlay más grandes en mobile */
+  .card-hover-overlay .overlay-icon {
+    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
+    transform: scale(1) !important;
+  }
+
+  .card-hover-overlay .overlay-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-hover-overlay .overlay-cta {
+    font-size: 0.78rem;
+    opacity: 0.9;
+  }
+
 }
