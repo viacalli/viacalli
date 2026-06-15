@@ -491,7 +491,7 @@ body::after {
 nav {
     position: relative;
   }
-  
+
   /* ── HERO ── */
  
   /* Reducir espacio encima del tag */
@@ -871,4 +871,366 @@ nav {
   .guides-carousel {
     max-width: 220px;
   }
+}
+/* ============================================================
+   VIACALLI — ESTILO MANUS ADAPTADO
+   Pega al FINAL de tu style.css existente
+   ============================================================ */
+
+/* ─── VARIABLES COMPLEMENTARIAS ── */
+:root {
+  --charcoal: #2C2416;
+  --charcoal-dark: #1E1810;
+  --terracotta: #A14B47;
+  --terracotta-light: #C47B6A;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ══════════════════════════════════════════════════════════
+   TOUR CARDS — ESTILO CON FOTO + OVERLAY + TAG
+   Reemplaza el estilo actual de .tour-preview-card
+   ══════════════════════════════════════════════════════════ */
+
+.tour-preview-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--charcoal);
+  cursor: pointer;
+  border-radius: 4px;
+  display: block;
+  text-decoration: none;
+}
+
+/* Foto de fondo */
+.tour-preview-card .tour-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+  z-index: 0;
+}
+
+.tour-preview-card:hover .tour-bg-img {
+  transform: scale(1.05);
+}
+
+/* Overlay oscuro */
+.tour-preview-card .card-hover-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2), transparent) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  z-index: 1;
+  border-radius: 4px;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: flex-start !important;
+  padding: 1.5rem !important;
+  pointer-events: none;
+}
+
+/* Tag de categoría arriba a la izquierda */
+.tour-preview-card .tour-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--terracotta);
+  color: white;
+  padding: 0.4rem 0.7rem;
+  z-index: 3;
+  font-family: var(--sans, 'DM Sans', sans-serif);
+  font-weight: 600;
+}
+
+/* Ocultar contenido original */
+.tour-preview-card .tour-icon,
+.tour-preview-card > h3,
+.tour-preview-card > p,
+.tour-preview-card .tour-link-arrow {
+  display: none !important;
+}
+
+/* Texto del overlay */
+.card-hover-overlay .overlay-icon {
+  display: none !important;
+}
+
+.card-hover-overlay .overlay-subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.4rem;
+  display: block;
+  opacity: 1 !important;
+  font-family: var(--sans, 'DM Sans', sans-serif);
+}
+
+.card-hover-overlay .overlay-title {
+  font-family: var(--serif, 'Cormorant Garamond', serif) !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.6rem !important;
+  display: block !important;
+  opacity: 1 !important;
+}
+
+.card-hover-overlay .overlay-cta {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--terracotta-light) !important;
+  display: block !important;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  font-family: var(--sans, 'DM Sans', sans-serif) !important;
+}
+
+.tour-preview-card:hover .card-hover-overlay .overlay-cta {
+  opacity: 1 !important;
+}
+
+/* Fotos por tour */
+.tour-preview-card[href*="frida"]    .tour-bg-img { content: url('img/frida.jpeg'); }
+.tour-preview-card[href*="bellas"]   .tour-bg-img { content: url('img/bellas.jpeg'); }
+.tour-preview-card[href*="munal"]    .tour-bg-img { content: url('img/munal.jpeg'); }
+.tour-preview-card[href*="antro"]    .tour-bg-img { content: url('img/antropologia.png'); }
+.tour-preview-card[href*="barragan"] .tour-bg-img { content: url('img/ortega.jpg'); }
+.tour-preview-card[href*="gastro"]   .tour-bg-img { content: url('img/gastronomico.jpg'); }
+.tour-preview-card[href*="photo"]    .tour-bg-img { content: url('img/photo.jpg'); }
+
+/* ══════════════════════════════════════════════════════════
+   CARRUSEL DE TESTIMONIOS
+   ══════════════════════════════════════════════════════════ */
+
+.testimonials-section {
+  background: var(--charcoal);
+  padding: 5rem 0;
+  position: relative;
+}
+
+.testimonials-section .section-label-manus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.testimonials-section .label-line-manus {
+  width: 2rem;
+  height: 1px;
+  background: var(--terracotta);
+}
+
+.testimonials-section .label-text-manus {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-family: var(--sans, 'DM Sans', sans-serif);
+}
+
+.testimonial-carousel-wrap {
+  position: relative;
+  min-height: 220px;
+  margin-bottom: 3rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.testimonial-item {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  pointer-events: none;
+  padding: 0 2rem;
+}
+
+.testimonial-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.testimonial-item blockquote {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  font-style: italic;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-item cite {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-style: normal;
+}
+
+.testimonial-author {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  font-family: var(--sans, 'DM Sans', sans-serif);
+}
+
+.testimonial-origin {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--sans, 'DM Sans', sans-serif);
+}
+
+.testimonial-dots-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.t-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  padding: 0;
+}
+
+.t-dot.active {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 2px;
+  background: var(--terracotta);
+}
+
+/* ══════════════════════════════════════════════════════════
+   FOOTER — ESTILO MANUS CON PALETA VIACALLI
+   ══════════════════════════════════════════════════════════ */
+
+.footer-manus {
+  background: var(--charcoal-dark);
+  padding: 4rem 0 2rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.footer-manus .footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .footer-manus .footer-inner {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand-col p {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  max-width: 28ch;
+  margin-top: 1rem;
+}
+
+.footer-brand-name {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.04em;
+}
+
+.footer-col h4 {
+  font-family: var(--sans, 'DM Sans', sans-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-col ul li a {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-out);
+}
+
+.footer-col ul li a:hover {
+  color: var(--terracotta);
+}
+
+.footer-col a.footer-email {
+  display: block;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 0.75rem;
+  transition: color 0.2s var(--ease-out);
+}
+
+.footer-col a.footer-email:hover {
+  color: var(--terracotta);
+}
+
+.footer-col .footer-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.6;
+}
+
+.footer-bottom-manus {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.footer-bottom-manus p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-bottom-manus em {
+  font-style: italic;
+  font-family: var(--serif, 'Cormorant Garamond', serif);
 }
