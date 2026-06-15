@@ -44,34 +44,63 @@
 .bio-left {
   position: sticky;
   top: 7rem;
-  max-width: 280px;
 }
 
 .guides-carousel {
-  width: 280px;
-  height: 373px;
-  margin: 0 auto 1.5rem;
+  width: 260px;
+  height: 360px;
+  margin: 0 0 1.5rem;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
 }
 
+.guides-track {
+  display: flex;
+  width: 780px;
+  height: 360px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
 .guide-slide {
-  min-width: 280px;
-  height: 373px;
+  width: 260px;
+  min-width: 260px;
+  height: 360px;
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .guide-photo {
-  width: 280px;
-  height: 373px;
+  width: 260px;
+  height: 360px;
   object-fit: cover;
   object-position: center top;
   display: block;
 }
 
+.guides-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0 0.25rem;
+}
 
+.guide-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(161, 75, 71, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.guide-dot.active {
+  background: var(--lav-dark, #A14B47);
+  transform: scale(1.25);
+}
 
 .bio-name {
   font-family: var(--serif);
@@ -201,6 +230,10 @@
 @media (max-width: 768px) {
   .bio-section { grid-template-columns: 1fr; padding: 2rem 1.5rem 4rem; gap: 2.5rem; }
   .bio-left { position: static; }
+  .guides-carousel { width: 220px; height: 300px; }
+  .guides-track { width: 660px; height: 300px; }
+  .guide-slide { width: 220px; min-width: 220px; height: 300px; }
+  .guide-photo { width: 220px; height: 300px; }
   .values-section { padding: 4rem 1.5rem; }
   .values-grid { grid-template-columns: 1fr; }
 }
@@ -221,6 +254,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <dialog id="mobileMenuDialog">
   <button class="dialog-close" id="dialogClose" aria-label="Close menu">✕</button>
   <nav class="dialog-nav">
@@ -238,16 +272,8 @@
   <p data-i18n="about.sub">Viacalli is not a tourism company. It's a practice of reading urban space — and sharing that reading with people who are ready to look closely.</p>
 </div>
 
-<!-- ============================================================
-     VIACALLI — CARRUSEL DE GUÍAS
-     Reemplaza TODA la sección <section class="bio-section">
-     en tu about.html con este bloque
-     ============================================================ -->
-
 <section class="bio-section">
   <div class="bio-left">
-
-    <!-- Carrusel de fotos -->
     <div class="guides-carousel">
       <div class="guides-track" id="guidesTrack">
         <div class="guide-slide">
@@ -260,15 +286,12 @@
           <img src="img/3.jpg" alt="Guide 3" class="guide-photo">
         </div>
       </div>
-
-      <!-- Dots de navegación -->
       <div class="guides-dots">
         <button class="guide-dot active" data-index="0"></button>
         <button class="guide-dot" data-index="1"></button>
         <button class="guide-dot" data-index="2"></button>
       </div>
     </div>
-
     <div class="bio-name">Your Guides</div>
     <div class="bio-title" data-i18n="about.bio.title">— Local Companion — Mexico City</div>
     <a href="contact.html" class="bio-contact-link">hello@viacalli.com →</a>
@@ -276,62 +299,15 @@
 
   <div class="bio-right">
     <h2 data-i18n="about.bio.h2">Not a tour guide in the conventional sense.</h2>
-    <p>
-      We are readers of cities — trained to notice what most people walk past: the structural logic of a facade, the political subtext of a mural, the quiet stories embedded in a neighborhood.
-    </p>
-    <p>
-      Viacalli was born from years of guiding curious travelers through Mexico City's most extraordinary spaces — and from the belief that meaningful experiences should be accessible to anyone willing to look deeper.
-    </p>
-    <p>
-      These tours are not itineraries with a fixed set of facts. They are conversations, shaped by who is in the group. Everyone brings a different perspective to the city — and that difference is part of what makes every tour unique. 
-    </p>
-    <p>
-      Over the years, we have guided visitors from across the world — including architects, artists, students, journalists, and first-time travelers to Mexico City. Every tour becomes a different way of understanding the city, shaped by the people exploring it together.
-    </p>
-    <p>
-      Mexico City is one of the world's most layered and emotionally complex urban environments. <strong>We've spent years learning to read it. We'd like to share that reading with you.</strong>
-    </p>
+    <p>We are readers of cities — trained to notice what most people walk past: the structural logic of a facade, the political subtext of a mural, the quiet stories embedded in a neighborhood.</p>
+    <p>Viacalli was born from years of guiding curious travelers through Mexico City's most extraordinary spaces — and from the belief that meaningful experiences should be accessible to anyone willing to look deeper.</p>
+    <p>These tours are not itineraries with a fixed set of facts. They are conversations, shaped by who is in the group. Everyone brings a different perspective to the city — and that difference is part of what makes every tour unique.</p>
+    <p>Over the years, we have guided visitors from across the world — including architects, artists, students, journalists, and first-time travelers to Mexico City. Every tour becomes a different way of understanding the city, shaped by the people exploring it together.</p>
+    <p>Mexico City is one of the world's most layered and emotionally complex urban environments. <strong>We've spent years learning to read it. We'd like to share that reading with you.</strong></p>
     <br>
     <a href="tours.html" class="btn btn-primary" data-i18n="about.bio.cta">See our tours →</a>
   </div>
 </section>
-
-<!-- Script del carrusel de guías -->
-<script>
-(function () {
-  var track = document.getElementById('guidesTrack');
-  var dots = document.querySelectorAll('.guide-dot');
-  var current = 0;
-  var total = 3;
-  var timer;
-
-  function goTo(index) {
-  current = index;
-  track.style.transform = 'translateX(-' + (index * 280) + 'px)';
-  dots.forEach(function (d, i) {
-    d.classList.toggle('active', i === index);
-  });
-}
-
-  function next() {
-    goTo((current + 1) % total);
-  }
-
-  function startTimer() {
-    timer = setInterval(next, 3500);
-  }
-
-  dots.forEach(function (dot) {
-    dot.addEventListener('click', function () {
-      clearInterval(timer);
-      goTo(parseInt(dot.dataset.index));
-      startTimer();
-    });
-  });
-
-  startTimer();
-})();
-</script>
 
 <section class="values-section">
   <h2 data-i18n="about.values.h2">How we work</h2>
@@ -365,6 +341,47 @@
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
 
+<script>
+(function () {
+  var track = document.getElementById('guidesTrack');
+  var dots = document.querySelectorAll('.guide-dot');
+  var current = 0;
+  var total = 3;
+  var slideWidth = 260;
+  var timer;
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (index * slideWidth) + 'px)';
+    dots.forEach(function (d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+
+  function next() {
+    goTo((current + 1) % total);
+  }
+
+  function startTimer() {
+    timer = setInterval(next, 3500);
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      clearInterval(timer);
+      goTo(parseInt(dot.dataset.index));
+      startTimer();
+    });
+  });
+
+  // Adjust slideWidth on mobile
+  if (window.innerWidth <= 768) {
+    slideWidth = 220;
+  }
+
+  startTimer();
+})();
+</script>
 
 <script src="lang.js"></script>
 <script>
