@@ -872,7 +872,17 @@ nav {
   }
 }
 @media (min-width: 769px) {
+  .guides-carousel {
+    max-width: 280px;
+    max-height: 380px;
+  }
+  
   .guide-slide {
     max-height: 380px;
+  }
+  
+  .guide-photo {
+    max-height: 380px;
+    object-fit: cover;
   }
 }
