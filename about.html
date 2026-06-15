@@ -336,6 +336,92 @@
 </section>
 
 <!-- ============================================================
+     VIACALLI — CARRUSEL DE TESTIMONIOS
+     Pega este bloque en about.html donde quieras que aparezca,
+     por ejemplo justo antes del </main> o antes del footer.
+     ============================================================ -->
+
+<section class="testimonials-section">
+  <div class="section-label-manus">
+    <div class="label-line-manus"></div>
+    <span class="label-text-manus">Lo que dicen nuestros viajeros</span>
+    <div class="label-line-manus"></div>
+  </div>
+
+  <div class="testimonial-carousel-wrap">
+
+    <div class="testimonial-item active">
+      <blockquote>"A magnificent experience, especially because of all the information we received from our guide, which far exceeded our expectations. Of course, we will repeat it."</blockquote>
+      <cite>
+        <span class="testimonial-author">Ramon C.</span>
+      </cite>
+    </div>
+
+    <div class="testimonial-item">
+      <blockquote>"The guide shared all his knowledge about Frida Kahlo's history and context. He conveyed his respect and admiration for her life and work — this allowed us to understand and appreciate the experience even more."</blockquote>
+      <cite>
+        <span class="testimonial-author">Sandra A.</span>
+      </cite>
+    </div>
+
+    <div class="testimonial-item">
+      <blockquote>"My guide shared many historical facts, showed me special corners of the museums, and the trip included a lovely stop at a local café. I highly recommend it."</blockquote>
+      <cite>
+        <span class="testimonial-author">Vera N.</span>
+      </cite>
+    </div>
+
+    <div class="testimonial-item">
+      <blockquote>"Yann was such a lovely guide! He spoke perfect English and was so passionate about art history. We loved his explanations of the murals — we'll definitely book another tour on our next visit."</blockquote>
+      <cite>
+        <span class="testimonial-author">Nancy S.</span>
+      </cite>
+    </div>
+
+  </div>
+
+  <div class="testimonial-dots-wrap">
+    <button class="t-dot active" data-t="0"></button>
+    <button class="t-dot" data-t="1"></button>
+    <button class="t-dot" data-t="2"></button>
+    <button class="t-dot" data-t="3"></button>
+  </div>
+</section>
+
+<script>
+(function () {
+  var items = document.querySelectorAll('.testimonial-item');
+  var dots = document.querySelectorAll('.t-dot');
+  var current = 0;
+  var timer;
+
+  function goTo(index) {
+    items[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    items[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      clearInterval(timer);
+      goTo(parseInt(dot.dataset.t));
+      startTimer();
+    });
+  });
+
+  function startTimer() {
+    timer = setInterval(function () {
+      goTo((current + 1) % items.length);
+    }, 5000);
+  }
+
+  startTimer();
+})();
+</script>
+
+<!-- ============================================================
      VIACALLI — FOOTER NUEVO
      Reemplaza tu <footer>...</footer> existente en TODAS las páginas:
      index.html, about.html, tours.html, contact.html
