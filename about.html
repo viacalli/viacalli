@@ -306,12 +306,12 @@
   var timer;
 
   function goTo(index) {
-    current = index;
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-    dots.forEach(function (d, i) {
-      d.classList.toggle('active', i === index);
-    });
-  }
+  current = index;
+  track.style.transform = 'translateX(-' + (index * 280) + 'px)';
+  dots.forEach(function (d, i) {
+    d.classList.toggle('active', i === index);
+  });
+}
 
   function next() {
     goTo((current + 1) % total);
