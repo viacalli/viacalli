@@ -20,7 +20,6 @@
   align-items: start;
 }
 
-/* ── LEFT ── */
 .contact-left {
   padding-top: 3rem;
   position: sticky;
@@ -82,10 +81,7 @@
 
 .contact-info-text a:hover { text-decoration: underline; }
 
-/* ── FORM ── */
-.contact-right {
-  padding-top: 3rem;
-}
+.contact-right { padding-top: 3rem; }
 
 .selected-tour-banner {
   background: rgba(175,164,206,0.1);
@@ -101,11 +97,7 @@
 
 .selected-tour-banner.hidden { display: none; }
 
-.banner-text {
-  font-size: 0.85rem;
-  color: var(--ink);
-}
-
+.banner-text { font-size: 0.85rem; color: var(--ink); }
 .banner-text strong { color: var(--lav-dark); }
 
 .banner-clear {
@@ -182,7 +174,6 @@
 }
 
 .field select option { color: var(--ink); }
-
 .field textarea { resize: vertical; min-height: 100px; }
 
 .form-submit-btn {
@@ -220,7 +211,6 @@
   font-style: italic;
 }
 
-/* Success state */
 .success-message {
   display: none;
   background: rgba(175,164,206,0.1);
@@ -231,11 +221,7 @@
 }
 
 .success-message.visible { display: block; }
-
-.success-message .success-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
+.success-message .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
 .success-message h3 {
   font-family: var(--serif);
@@ -251,10 +237,106 @@
   line-height: 1.7;
 }
 
+/* ── TESTIMONIOS ── */
+.testimonials-section {
+  background: var(--ink);
+  padding: 5rem 2rem;
+}
+
+.testimonials-section .t-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.testimonials-section .t-label-line {
+  width: 2rem;
+  height: 1px;
+  background: var(--lav-dark);
+}
+
+.testimonials-section .t-label-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+  font-family: var(--sans);
+}
+
+.testimonial-carousel-wrap {
+  position: relative;
+  min-height: 200px;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.testimonial-item {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  pointer-events: none;
+  padding: 0 1.5rem;
+}
+
+.testimonial-item.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.testimonial-item blockquote {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  font-style: italic;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--sans);
+  display: block;
+}
+
+.testimonial-dots-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.t-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.t-dot.active {
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 2px;
+  background: var(--lav-dark);
+}
+
 @media (max-width: 768px) {
   .contact-page { grid-template-columns: 1fr; padding: 5rem 1.5rem 4rem; gap: 2.5rem; }
   .contact-left { position: static; }
   .form-row { grid-template-columns: 1fr; }
+  .testimonials-section { padding: 3.5rem 1.5rem; }
 }
 </style>
 </head>
@@ -273,6 +355,7 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <dialog id="mobileMenuDialog">
   <button class="dialog-close" id="dialogClose" aria-label="Close menu">✕</button>
   <nav class="dialog-nav">
@@ -285,18 +368,14 @@
 </dialog>
 
 <div class="contact-page">
-
   <div class="contact-left">
     <span class="eyebrow" data-i18n="contact.eyebrow">Get in touch</span>
     <h1><span data-i18n="contact.h1a">Let's plan your</span> <span data-i18n="contact.h1b">experience</span></h1>
     <p data-i18n="contact.sub">Tell us about your group and what you're curious about. We'll reach out to find the right tour for you.</p>
-
     <div class="contact-info">
       <div class="contact-info-item">
         <div class="contact-info-icon">✉️</div>
-        <div class="contact-info-text">
-          <a href="mailto:hello@viacalli.com">hello@viacalli.com</a>
-        </div>
+        <div class="contact-info-text"><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-icon">📍</div>
@@ -314,43 +393,32 @@
   </div>
 
   <div class="contact-right">
-
-    <!-- Tour preselect banner (shown when coming from a tour page) -->
     <div class="selected-tour-banner hidden" id="tourBanner">
       <div class="banner-text">Inquiring about: <strong id="bannerTourName"></strong></div>
       <button class="banner-clear" onclick="clearTourSelection()" data-i18n="contact.banner.clear">Clear selection</button>
     </div>
 
-    <!-- SUCCESS STATE -->
     <div class="success-message" id="successMsg">
       <div class="success-icon">✦</div>
       <h3 data-i18n="contact.success.h3">Message received!</h3>
       <p data-i18n="contact.success.p">Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
     </div>
 
-    <!-- FORM -->
-    <form
-      class="contact-form"
-      id="contactForm"
-      action="https://formspree.io/f/hello@viacalli.com"
-      method="POST"
-    >
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/hello@viacalli.com" method="POST">
       <div class="form-row">
         <div class="field">
           <label for="firstName" data-i18n="contact.form.fname">First name</label>
-          <input type="text" id="firstName" name="firstName" data-i18n-ph="contact.form.ph.fname" placeholder="Jane" required>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
         </div>
         <div class="field">
           <label for="lastName" data-i18n="contact.form.lname">Last name</label>
-          <input type="text" id="lastName" name="lastName" data-i18n-ph="contact.form.ph.lname" placeholder="Smith">
+          <input type="text" id="lastName" name="lastName" placeholder="Smith">
         </div>
       </div>
-
       <div class="field">
         <label for="email" data-i18n="contact.form.email">Email address</label>
-        <input type="email" id="email" name="email" data-i18n-ph="contact.form.ph.email" placeholder="jane@example.com" required>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
       </div>
-
       <div class="field">
         <label for="tour" data-i18n="contact.form.tour">Experience of interest</label>
         <select id="tour" name="tour">
@@ -365,70 +433,88 @@
           <option value="Custom itinerary">Custom itinerary</option>
         </select>
       </div>
-
       <div class="form-row">
         <div class="field">
           <label for="groupSize" data-i18n="contact.form.size">Group size</label>
-          <input type="text" id="groupSize" name="groupSize" data-i18n-ph="contact.form.ph.size" placeholder="e.g. 4 people">
+          <input type="text" id="groupSize" name="groupSize" placeholder="e.g. 4 people">
         </div>
         <div class="field">
           <label for="dates" data-i18n="contact.form.dates">Preferred dates</label>
-          <input type="text" id="dates" name="dates" data-i18n-ph="contact.form.ph.dates" placeholder="e.g. mid-June">
+          <input type="text" id="dates" name="dates" placeholder="e.g. mid-June">
         </div>
       </div>
-
       <div class="field">
         <label for="message" data-i18n="contact.form.msg">Tell us about your group</label>
-        <textarea id="message" name="message" data-i18n-ph="contact.form.ph.msg" placeholder="Your background, what you're curious about, any special interests…"></textarea>
+        <textarea id="message" name="message" placeholder="Your background, what you're curious about, any special interests…"></textarea>
       </div>
-
-      <button type="submit" class="form-submit-btn" id="submitBtn" data-i18n="contact.form.submit">
-        Send message →
-      </button>
+      <button type="submit" class="form-submit-btn" id="submitBtn" data-i18n="contact.form.submit">Send message →</button>
       <p class="form-note" data-i18n="contact.form.note">No spam, ever. Just a reply from a human who loves this city.</p>
     </form>
-
   </div>
 </div>
+
+<!-- CARRUSEL DE TESTIMONIOS -->
+<section class="testimonials-section">
+  <div class="t-label">
+    <div class="t-label-line"></div>
+    <span class="t-label-text">What our travelers say</span>
+    <div class="t-label-line"></div>
+  </div>
+
+  <div class="testimonial-carousel-wrap">
+    <div class="testimonial-item active">
+      <blockquote>"A magnificent experience — the information we received from our guide far exceeded our expectations. We will definitely repeat it."</blockquote>
+      <span class="testimonial-author">Ramon C.</span>
+    </div>
+    <div class="testimonial-item">
+      <blockquote>"The guide shared all his knowledge about Frida Kahlo's history and context. His respect and admiration for her life and work allowed us to appreciate the experience even more."</blockquote>
+      <span class="testimonial-author">Sandra A.</span>
+    </div>
+    <div class="testimonial-item">
+      <blockquote>"My guide shared many historical facts, showed me special corners of the museums, and included a lovely stop at a local café. I highly recommend it."</blockquote>
+      <span class="testimonial-author">Vera N.</span>
+    </div>
+    <div class="testimonial-item">
+      <blockquote>"Yann was such a lovely guide — passionate about art history, perfect English, and incredible explanations of the murals. We'll definitely book another tour on our next visit."</blockquote>
+      <span class="testimonial-author">Nancy S.</span>
+    </div>
+  </div>
+
+  <div class="testimonial-dots-wrap">
+    <button class="t-dot active" data-t="0"></button>
+    <button class="t-dot" data-t="1"></button>
+    <button class="t-dot" data-t="2"></button>
+    <button class="t-dot" data-t="3"></button>
+  </div>
+</section>
 
 <footer>
   <p data-i18n="footer.copy">© 2025 Viacalli — Mexico City</p>
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
 
-
-
 <script>
-// ── TOUR PRESELECTION from URL param ──
 const tourMap = {
-  'frida':          'Frida Kahlo Museum',
-  'bellasartes':    'Palacio de Bellas Artes',
-  'munal':          'National Art Museum',
-  'antropologia':   'Anthropology Museum',
-  'barragan':       'Casa Ortega by Luis Barragán',
-  'gastronomico':   'Culinary Tour',
-  'photoshoot':     'Photoshooting',
+  'frida': 'Frida Kahlo Museum',
+  'bellasartes': 'Palacio de Bellas Artes',
+  'munal': 'National Art Museum',
+  'antropologia': 'Anthropology Museum',
+  'barragan': 'Casa Ortega by Luis Barragán',
+  'gastronomico': 'Culinary Tour',
+  'photoshoot': 'Photoshooting',
 };
 
 function applyTourParam() {
   const params = new URLSearchParams(window.location.search);
   const tour = params.get('tour');
   if (!tour || !tourMap[tour]) return;
-
   const select = document.getElementById('tour');
   const banner = document.getElementById('tourBanner');
   const bannerName = document.getElementById('bannerTourName');
   const fullName = tourMap[tour];
-
-  // Preselect dropdown
   for (let i = 0; i < select.options.length; i++) {
-    if (select.options[i].value === fullName) {
-      select.selectedIndex = i;
-      break;
-    }
+    if (select.options[i].value === fullName) { select.selectedIndex = i; break; }
   }
-
-  // Show banner
   bannerName.textContent = fullName;
   banner.classList.remove('hidden');
 }
@@ -436,27 +522,20 @@ function applyTourParam() {
 function clearTourSelection() {
   document.getElementById('tour').selectedIndex = 0;
   document.getElementById('tourBanner').classList.add('hidden');
-  // Remove param from URL without reload
   const url = new URL(window.location);
   url.searchParams.delete('tour');
   window.history.replaceState({}, '', url);
 }
 
-// ── FORM SUBMIT (Formspree AJAX) ──
 document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.textContent = 'Sending…';
-
   try {
-    const data = new FormData(this);
     const response = await fetch(this.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' }
     });
-
     if (response.ok) {
       this.style.display = 'none';
       document.getElementById('tourBanner').style.display = 'none';
@@ -464,20 +543,45 @@ document.getElementById('contactForm').addEventListener('submit', async function
     } else {
       btn.disabled = false;
       btn.textContent = 'Try again →';
-      alert('Something went wrong. Please try emailing us directly at hello@viacalli.com');
     }
   } catch (err) {
     btn.disabled = false;
     btn.textContent = 'Try again →';
-    alert('Connection error. Please email us at hello@viacalli.com');
   }
 });
 
 applyTourParam();
+
+// Testimonios carrusel
+(function () {
+  var items = document.querySelectorAll('.testimonial-item');
+  var dots = document.querySelectorAll('.t-dot');
+  var current = 0;
+  var timer;
+
+  function goTo(index) {
+    items[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    items[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      clearInterval(timer);
+      goTo(parseInt(dot.dataset.t));
+      startTimer();
+    });
+  });
+
+  function startTimer() {
+    timer = setInterval(function () { goTo((current + 1) % items.length); }, 5000);
+  }
+
+  startTimer();
+})();
 </script>
-
-
-
 
 <script src="lang.js"></script>
 <script>
@@ -486,30 +590,12 @@ applyTourParam();
   var dialog    = document.getElementById('mobileMenuDialog');
   var closeBtn  = document.getElementById('dialogClose');
   if (!hamburger || !dialog) return;
-
-  hamburger.addEventListener('click', function() {
-    dialog.showModal();
-    document.body.style.overflow = 'hidden';
-  });
-
-  function closeDialog() {
-    dialog.close();
-    document.body.style.overflow = '';
-  }
-
+  hamburger.addEventListener('click', function() { dialog.showModal(); document.body.style.overflow = 'hidden'; });
+  function closeDialog() { dialog.close(); document.body.style.overflow = ''; }
   if (closeBtn) closeBtn.addEventListener('click', closeDialog);
-
-  dialog.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', closeDialog);
-  });
-
-  dialog.addEventListener('click', function(e) {
-    if (e.target === dialog) closeDialog();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') { document.body.style.overflow = ''; }
-  });
+  dialog.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDialog); });
+  dialog.addEventListener('click', function(e) { if (e.target === dialog) closeDialog(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.body.style.overflow = ''; } });
 })();
 </script>
 </body>
