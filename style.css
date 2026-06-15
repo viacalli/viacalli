@@ -154,26 +154,18 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  background: #C4847A;
-  padding: 2.5rem 3.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0;
+  background: transparent;
 }
 
 footer p {
   font-size: 0.8rem;
-  color: #2e2535;
 }
 
 footer a {
-  color: #2e2535;
   text-decoration: none;
   transition: color 0.2s;
 }
-
-footer a:hover { color: #fff; }
-
 /* ── HAMBURGER ── */
 .nav-hamburger {
   display: none;
