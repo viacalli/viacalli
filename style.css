@@ -871,3 +871,8 @@ nav {
     max-width: 220px;
   }
 }
+@media (min-width: 769px) {
+  .guide-slide {
+    max-height: 380px;
+  }
+}
