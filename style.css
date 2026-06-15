@@ -805,8 +805,8 @@ nav {
 
 /* Contenedor del carrusel */
 .guides-carousel {
-  width: 100%;
-  max-width: 280px;
+  width: 280px;
+  height: 380px;
   margin: 0 auto 1.5rem;
   border-radius: 20px;
   overflow: hidden;
