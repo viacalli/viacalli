@@ -19,230 +19,48 @@
   padding-bottom: 6rem;
   align-items: start;
 }
-
-.contact-left {
-  padding-top: 3rem;
-  position: sticky;
-  top: 7rem;
-}
-
-.contact-left h1 {
-  font-family: var(--serif);
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.1;
-  margin-bottom: 1.2rem;
-}
-
+.contact-left { padding-top: 3rem; position: sticky; top: 7rem; }
+.contact-left h1 { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 1.2rem; }
 .contact-left h1 span { color: var(--lav-dark); }
-
-.contact-left > p {
-  font-size: 1rem;
-  color: var(--muted);
-  line-height: 1.85;
-  max-width: 38ch;
-  margin-bottom: 3rem;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.contact-info-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.contact-info-icon {
-  width: 36px; height: 36px;
-  background: rgba(175,164,206,0.12);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-}
-
-.contact-info-text {
-  font-size: 0.88rem;
-  color: var(--muted);
-}
-
-.contact-info-text a {
-  color: var(--lav-dark);
-  text-decoration: none;
-  font-weight: 600;
-}
-
+.contact-left > p { font-size: 1rem; color: var(--muted); line-height: 1.85; max-width: 38ch; margin-bottom: 3rem; }
+.contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+.contact-info-item { display: flex; align-items: center; gap: 0.8rem; }
+.contact-info-icon { width: 36px; height: 36px; background: rgba(175,164,206,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.contact-info-text { font-size: 0.88rem; color: var(--muted); }
+.contact-info-text a { color: var(--lav-dark); text-decoration: none; font-weight: 600; }
 .contact-info-text a:hover { text-decoration: underline; }
-
 .contact-right { padding-top: 3rem; }
-
-.selected-tour-banner {
-  background: rgba(175,164,206,0.1);
-  border: 1px solid rgba(175,164,206,0.3);
-  border-radius: 14px;
-  padding: 1rem 1.3rem;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
+.selected-tour-banner { background: rgba(175,164,206,0.1); border: 1px solid rgba(175,164,206,0.3); border-radius: 14px; padding: 1rem 1.3rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .selected-tour-banner.hidden { display: none; }
-
 .banner-text { font-size: 0.85rem; color: var(--ink); }
 .banner-text strong { color: var(--lav-dark); }
-
-.banner-clear {
-  font-size: 0.75rem;
-  color: var(--muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
-  white-space: nowrap;
-}
-
+.banner-clear { font-size: 0.75rem; color: var(--muted); background: none; border: none; cursor: pointer; text-decoration: underline; padding: 0; white-space: nowrap; }
 .banner-clear:hover { color: var(--ink); }
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-
-.field label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--lav-dark);
-}
-
-.field input,
-.field textarea,
-.field select {
-  background: var(--white);
-  border: 1.5px solid rgba(175,164,206,0.25);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-}
-
-.field input::placeholder,
-.field textarea::placeholder { color: #bbb; }
-
-.field input:focus,
-.field textarea:focus,
-.field select:focus {
-  border-color: var(--lav-dark);
-  box-shadow: 0 0 0 3px rgba(175,164,206,0.15);
-}
-
-.field select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A14B47' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-}
-
+.contact-form { display: flex; flex-direction: column; gap: 1.4rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.field { display: flex; flex-direction: column; gap: 0.45rem; }
+.field label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lav-dark); }
+.field input, .field textarea, .field select { background: var(--white); border: 1.5px solid rgba(175,164,206,0.25); border-radius: 12px; padding: 0.75rem 1rem; font-family: var(--sans); font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none; -webkit-appearance: none; width: 100%; }
+.field input::placeholder, .field textarea::placeholder { color: #bbb; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--lav-dark); box-shadow: 0 0 0 3px rgba(175,164,206,0.15); }
+.field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A14B47' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
 .field select option { color: var(--ink); }
 .field textarea { resize: vertical; min-height: 100px; }
-
-.form-submit-btn {
-  background: var(--lav-dark);
-  color: #fff;
-  border: none;
-  border-radius: 999px;
-  padding: 0.9rem 2.2rem;
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.2s;
-  align-self: flex-start;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.form-submit-btn:hover {
-  box-shadow: 0 6px 24px rgba(175,164,206,0.4);
-  transform: translateY(-1px);
-}
-
-.form-submit-btn:disabled {
-  opacity: 0.6;
-  cursor: default;
-  transform: none;
-  box-shadow: none;
-}
-
-.form-note {
-  font-size: 0.78rem;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.success-message {
-  display: none;
-  background: rgba(175,164,206,0.1);
-  border: 1px solid rgba(175,164,206,0.3);
-  border-radius: 18px;
-  padding: 2.5rem;
-  text-align: center;
-}
-
+.form-submit-btn { background: var(--lav-dark); color: #fff; border: none; border-radius: 999px; padding: 0.9rem 2.2rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: transform 0.15s, box-shadow 0.2s; align-self: flex-start; display: flex; align-items: center; gap: 0.5rem; }
+.form-submit-btn:hover { box-shadow: 0 6px 24px rgba(175,164,206,0.4); transform: translateY(-1px); }
+.form-submit-btn:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+.form-note { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+.success-message { display: none; background: rgba(175,164,206,0.1); border: 1px solid rgba(175,164,206,0.3); border-radius: 18px; padding: 2.5rem; text-align: center; }
 .success-message.visible { display: block; }
 .success-message .success-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.success-message h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--ink); margin-bottom: 0.7rem; }
+.success-message p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
 
-.success-message h3 {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 0.7rem;
-}
-
-.success-message p {
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-/* ── TESTIMONIOS ── */
+/* ── TESTIMONIOS — colores Viacalli ── */
 .testimonials-section {
-  background: var(--ink);
+  background: var(--green);
   padding: 5rem 2rem;
 }
-
 .testimonials-section .t-label {
   display: flex;
   align-items: center;
@@ -250,13 +68,11 @@
   gap: 0.75rem;
   margin-bottom: 3rem;
 }
-
 .testimonials-section .t-label-line {
   width: 2rem;
   height: 1px;
   background: var(--lav-dark);
 }
-
 .testimonials-section .t-label-text {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
@@ -264,14 +80,12 @@
   color: var(--lav-dark);
   font-family: var(--sans);
 }
-
 .testimonial-carousel-wrap {
   position: relative;
   min-height: 200px;
   max-width: 720px;
   margin: 0 auto 3rem;
 }
-
 .testimonial-item {
   position: absolute;
   inset: 0;
@@ -282,49 +96,44 @@
   pointer-events: none;
   padding: 0 1.5rem;
 }
-
 .testimonial-item.active {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-
 .testimonial-item blockquote {
   font-family: var(--serif);
   font-size: clamp(1.1rem, 3vw, 1.5rem);
   font-style: italic;
   font-weight: 300;
-  color: #fff;
+  color: var(--ink);
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
-
 .testimonial-author {
   font-size: 0.85rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.7);
+  color: var(--ink);
   font-family: var(--sans);
   display: block;
+  opacity: 0.7;
 }
-
 .testimonial-dots-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
 }
-
 .t-dot {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  background: rgba(122,147,99,0.4);
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 }
-
 .t-dot.active {
   width: 2rem;
   height: 0.25rem;
@@ -397,13 +206,11 @@
       <div class="banner-text">Inquiring about: <strong id="bannerTourName"></strong></div>
       <button class="banner-clear" onclick="clearTourSelection()" data-i18n="contact.banner.clear">Clear selection</button>
     </div>
-
     <div class="success-message" id="successMsg">
       <div class="success-icon">✦</div>
       <h3 data-i18n="contact.success.h3">Message received!</h3>
       <p data-i18n="contact.success.p">Thank you for reaching out. We'll be in touch within 48 hours to discuss your tour.</p>
     </div>
-
     <form class="contact-form" id="contactForm" action="https://formspree.io/f/hello@viacalli.com" method="POST">
       <div class="form-row">
         <div class="field">
@@ -453,14 +260,12 @@
   </div>
 </div>
 
-<!-- CARRUSEL DE TESTIMONIOS -->
 <section class="testimonials-section">
   <div class="t-label">
     <div class="t-label-line"></div>
     <span class="t-label-text">What our travelers say</span>
     <div class="t-label-line"></div>
   </div>
-
   <div class="testimonial-carousel-wrap">
     <div class="testimonial-item active">
       <blockquote>"A magnificent experience — the information we received from our guide far exceeded our expectations. We will definitely repeat it."</blockquote>
@@ -479,7 +284,6 @@
       <span class="testimonial-author">Nancy S.</span>
     </div>
   </div>
-
   <div class="testimonial-dots-wrap">
     <button class="t-dot active" data-t="0"></button>
     <button class="t-dot" data-t="1"></button>
@@ -552,13 +356,11 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
 applyTourParam();
 
-// Testimonios carrusel
 (function () {
   var items = document.querySelectorAll('.testimonial-item');
   var dots = document.querySelectorAll('.t-dot');
   var current = 0;
   var timer;
-
   function goTo(index) {
     items[current].classList.remove('active');
     dots[current].classList.remove('active');
@@ -566,7 +368,6 @@ applyTourParam();
     items[current].classList.add('active');
     dots[current].classList.add('active');
   }
-
   dots.forEach(function (dot) {
     dot.addEventListener('click', function () {
       clearInterval(timer);
@@ -574,11 +375,9 @@ applyTourParam();
       startTimer();
     });
   });
-
   function startTimer() {
     timer = setInterval(function () { goTo((current + 1) % items.length); }, 5000);
   }
-
   startTimer();
 })();
 </script>
