@@ -823,8 +823,9 @@ nav {
 /* Cada slide ocupa el 100% del ancho */
 .guide-slide {
   min-width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 380px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 /* Foto */
