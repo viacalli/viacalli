@@ -30,7 +30,7 @@ const TRANSLATIONS = {
   'index.tours.h2':      { en: 'Our experiences', es: 'Nuestras experiencias' },
   'index.tours.btn':     { en: 'See all tours', es: 'Ver todos los tours' },
 
-  // Tour preview cards
+  // ── TOUR PREVIEW CARDS (index.html carousel) ──
   'tour.frida.p':        { en: 'The human stories behind the paintings — a conversation-driven encounter with Frida\'s life and home.', es: 'Las historias detrás de las pinturas — un encuentro íntimo con la vida y el hogar de Frida.' },
   'tour.bellas.p':       { en: 'Rivera, Siqueiros, Orozco, Tamayo — revolution and identity painted across Mexico\'s finest walls.', es: 'Rivera, Siqueiros, Orozco, Tamayo — revolución e identidad pintadas en los mejores muros de México.' },
   'tour.munal.p':        { en: 'Mexico\'s visual history inside one of the city\'s most elegant buildings — beyond dates and attributions.', es: 'La historia visual de México dentro de uno de los edificios más elegantes de la ciudad — más allá de fechas y atribuciones.' },
@@ -40,36 +40,38 @@ const TRANSLATIONS = {
   'tour.photo.p':        { en: 'A relaxed, guided session across carefully chosen locations — authentic images, no posing required.', es: 'Una sesión relajada por locaciones cuidadosamente elegidas — imágenes auténticas, sin poses forzadas.' },
   'card.learnmore':      { en: 'Learn more →', es: 'Ver más →' },
 
-  // ── TOURS PAGE ──
-  'tours.eyebrow':       { en: 'Experiences', es: 'Experiencias' },
-  'tours.h1':            { en: 'Our tours', es: 'Nuestros tours' },
-  'tours.sub':           { en: 'Eight curated experiences, each designed around a different way of seeing — and understanding — Mexico City.', es: 'Ocho experiencias curadas, cada una diseñada alrededor de una forma distinta de ver — y entender — la Ciudad de México.' },
-
-  // Tour cards
+  // ── TOURS PAGE — nombres y descripciones completas ──
+  'tour.frida.h2':       { en: 'Frida Kahlo Museum', es: 'Museo Frida Kahlo' },
   'tour.frida.badge':    { en: 'Museum', es: 'Museo' },
   'tour.frida.desc':     { en: 'Far more than a conventional museum visit. This experience approaches Frida through the human stories behind the paintings and the atmosphere of the home she carefully preserved — a conversation-driven encounter with the life, contradictions, and enduring power of one of Mexico\'s most iconic figures.', es: 'Mucho más que una visita convencional al museo. Esta experiencia se acerca a Frida a través de las historias humanas detrás de sus pinturas y la atmósfera del hogar que preservó con tanto cuidado — un encuentro íntimo con la vida, las contradicciones y el poder perdurable de una de las figuras más icónicas de México.' },
-  'tour.frida.footer':   { en: 'Perfect for art historians, cultural travelers, and anyone moved by Frida\'s story.', es: 'Ideal para historiadores del arte, viajeros culturales y quienes se conmueven con la historia de Frida.' },
+  'tour.frida.footer':   { en: 'Ideal for art lovers, history enthusiasts, and anyone drawn to Frida\'s story.', es: 'Ideal para amantes del arte, entusiastas de la historia y quienes se sienten atraídos por la historia de Frida.' },
 
-  'tour.bellas.badge':   { en: 'Art History', es: 'Historia del Arte' },
-  'tour.bellas.desc':    { en: 'Home to some of the most powerful murals ever painted — Rivera, Siqueiros, Orozco, Tamayo. This experience goes beyond the surface to explore what these works meant in their time, and what they still say today about revolution, identity, and the idea of Mexico.', es: 'Hogar de algunos de los murales más poderosos jamás pintados — Rivera, Siqueiros, Orozco, Tamayo. Esta experiencia va más allá de la superficie para explorar lo que estas obras significaron en su tiempo y lo que aún dicen hoy sobre la revolución, la identidad y la idea de México.' },
+  'tour.bellas.h2':      { en: 'Palace of Fine Arts', es: 'Palacio de Bellas Artes' },
+  'tour.bellas.badge':   { en: 'Muralism', es: 'Muralismo' },
+  'tour.bellas.desc':    { en: 'Begin at Mexico\'s most celebrated cultural venue and discover how Rivera, Siqueiros, Orozco, and Tamayo used its walls to express revolution, identity, and the future of a nation. A close reading of public art as a political and emotional act — all under one extraordinary roof.', es: 'Comienza en el recinto cultural más celebrado de México y descubre cómo Rivera, Siqueiros, Orozco y Tamayo usaron sus muros para expresar la revolución, la identidad y el futuro de una nación. Una lectura profunda del arte público como acto político y emocional — todo bajo un techo extraordinario.' },
   'tour.bellas.footer':  { en: 'Perfect for art historians, cultural travelers, and anyone moved by political muralism.', es: 'Ideal para historiadores del arte, viajeros culturales y quienes se conmueven con el muralismo político.' },
 
+  'tour.munal.h2':       { en: 'National Art Museum', es: 'Museo Nacional de Arte' },
   'tour.munal.badge':    { en: 'Art History', es: 'Historia del Arte' },
   'tour.munal.desc':     { en: 'Inside one of the most elegant historic buildings in the city, this experience focuses not on dates and attributions, but on the stories and symbolism embedded in the collection. Watch Mexican art evolve alongside the country itself — from colonial influence to modernization and national identity.', es: 'Dentro de uno de los edificios históricos más elegantes de la ciudad, esta experiencia se enfoca no en fechas ni atribuciones, sino en las historias y el simbolismo de la colección. La evolución del arte mexicano junto con el país mismo — de la influencia colonial a la modernización y la identidad nacional.' },
   'tour.munal.footer':   { en: 'Ideal for curious travelers wanting to understand Mexico\'s visual and cultural history.', es: 'Ideal para viajeros curiosos que quieren entender la historia visual y cultural de México.' },
 
+  'tour.antro.h2':       { en: 'Anthropology Museum', es: 'Museo de Antropología' },
   'tour.antro.badge':    { en: 'History', es: 'Historia' },
   'tour.antro.desc':     { en: 'An intimate, passion-driven visit through the civilizations that shaped Mexico — from the Mexica and Maya to the complex arc of conquest, independence, and modern identity. We focus on the human stories behind the objects, the ideas that transformed a nation, and the living connections between ancient and contemporary Mexico.', es: 'Una visita íntima y apasionada por las civilizaciones que forjaron México — de los mexicas y mayas al complejo arco de la conquista, la independencia y la identidad moderna. Nos enfocamos en las historias humanas detrás de los objetos, las ideas que transformaron una nación y las conexiones vivas entre el México antiguo y el contemporáneo.' },
   'tour.antro.footer':   { en: 'For anyone who wants to understand where Mexico comes from — and where it\'s going.', es: 'Para quienes quieren entender de dónde viene México — y hacia dónde va.' },
 
+  'tour.barragan.h2':    { en: 'Casa Ortega by Luis Barragán', es: 'Casa Ortega por Luis Barragán' },
   'tour.barragan.badge': { en: 'Architecture', es: 'Arquitectura' },
   'tour.barragan.desc':  { en: 'Discover the quiet beauty and emotional depth of Casa Ortega — one of the lesser-known residential masterpieces connected to Barragán\'s vision. Through light, color, silence, and texture, this intimate experience explores architecture as contemplation, not spectacle. We\'ll discuss his influence on modern design and the cultural context of mid-century Mexico.', es: 'Descubre la belleza silenciosa y la profundidad emocional de Casa Ortega — una de las obras residenciales menos conocidas de la visión de Barragán. A través de la luz, el color, el silencio y la textura, esta experiencia íntima explora la arquitectura como contemplación, no como espectáculo. Hablaremos de su influencia en el diseño moderno y el contexto cultural del México de mediados del siglo XX.' },
   'tour.barragan.footer':{ en: 'Designed for travelers genuinely interested in architecture, design, and cultural history.', es: 'Diseñado para viajeros genuinamente interesados en arquitectura, diseño e historia cultural.' },
 
+  'tour.food.h2':        { en: 'Culinary Tour', es: 'Tour Gastronómico' },
   'tour.food.badge':     { en: 'Food & Culture', es: 'Gastronomía y Cultura' },
   'tour.food.desc':      { en: 'Experience Mexico City through its flavors — from beloved local classics to hidden neighborhood gems. This isn\'t a list of stops; it\'s a guided conversation about how food reflects the city\'s history, identity, and creativity. Small groups, thoughtful tastings, and places most visitors would never find on their own.', es: 'Experimenta la Ciudad de México a través de sus sabores — desde los clásicos locales hasta joyas escondidas. No es una lista de paradas; es una conversación guiada sobre cómo la comida refleja la historia, identidad y creatividad de la ciudad. Grupos pequeños, degustaciones reflexivas y lugares que la mayoría de los visitantes nunca encontrarían solos.' },
   'tour.food.footer':    { en: 'For curious eaters who want to understand a city through what it eats.', es: 'Para curiosos gastronómicos que quieren entender una ciudad a través de lo que come.' },
 
+  'tour.photo.h2':       { en: 'Photoshooting', es: 'Sesión Fotográfica' },
   'tour.photo.badge':    { en: 'Photography', es: 'Fotografía' },
   'tour.photo.desc':     { en: 'A relaxed, professionally guided session designed to feel natural, personal, and effortless. Together we\'ll explore carefully selected locations that capture the atmosphere and character of Mexico City — creating images that feel authentic rather than posed. Comfortable even for those with little experience in front of a camera. Includes edited high-resolution images.', es: 'Una sesión relajada y guiada profesionalmente, diseñada para sentirse natural, personal y sin esfuerzo. Juntos exploraremos locaciones cuidadosamente seleccionadas que capturan la atmósfera y el carácter de la Ciudad de México — creando imágenes auténticas, no posadas. Cómodo incluso para quienes tienen poca experiencia frente a la cámara. Incluye imágenes editadas en alta resolución.' },
   'tour.photo.footer':   { en: 'Perfect for solo travelers, couples, friends, and anyone wanting meaningful memories of the city.', es: 'Perfecto para viajeros solos, parejas, amigos y cualquiera que quiera recuerdos significativos de la ciudad.' },
@@ -113,6 +115,16 @@ const TRANSLATIONS = {
   'about.cta.h2':        { en: 'Ready to read the city?', es: '¿Listo para leer la ciudad?' },
   'about.cta.p':         { en: 'Tell us about your group and we\'ll put together the right experience for you.', es: 'Cuéntanos sobre tu grupo y armaremos la experiencia perfecta para ti.' },
   'about.cta.btn':       { en: 'Get in touch →', es: 'Contáctanos →' },
+
+  // ── ABOUT — BIO PÁRRAFOS (para about.html) ──
+  'about.guides.name':   { en: 'Your Guides', es: 'Tus Guías' },
+
+  // ── TESTIMONIOS ──
+  'testimonial.label':   { en: 'What our travelers say', es: 'Lo que dicen nuestros viajeros' },
+  'testimonial.1':       { en: '"A magnificent experience — the information we received from our guide far exceeded our expectations. We will definitely repeat it."', es: '"Una experiencia magnífica — la información que recibimos de nuestro guía superó con creces nuestras expectativas. Definitivamente lo repetiremos."' },
+  'testimonial.2':       { en: '"The guide shared all his knowledge about Frida Kahlo\'s history and context. His respect and admiration for her life and work allowed us to appreciate the experience even more."', es: '"El guía compartió todo su conocimiento sobre la historia y el contexto de Frida Kahlo. Su respeto y admiración por su vida y obra nos permitieron apreciar la experiencia aún más."' },
+  'testimonial.3':       { en: '"My guide shared many historical facts, showed me special corners of the museums, and included a lovely stop at a local café. I highly recommend it."', es: '"Mi guía compartió muchos datos históricos, me mostró rincones especiales de los museos e incluyó una encantadora parada en un café local. Lo recomiendo mucho."' },
+  'testimonial.4':       { en: '"Yann was such a lovely guide — passionate about art history, perfect English, and incredible explanations of the murals. We\'ll definitely book another tour on our next visit."', es: '"Yann fue un guía maravilloso — apasionado por la historia del arte, inglés perfecto y explicaciones increíbles sobre los murales. Definitivamente reservaremos otro tour en nuestra próxima visita."' },
 
   // ── CONTACT PAGE ──
   'contact.eyebrow':     { en: 'Get in touch', es: 'Contáctanos' },
@@ -177,17 +189,19 @@ const I18N = {
       el.placeholder = this.t(el.getAttribute('data-i18n-ph'));
     });
 
-    // HTML content (for elements needing <br> etc)
+    // HTML content
     document.querySelectorAll('[data-i18n-html]').forEach(el => {
       el.innerHTML = this.t(el.getAttribute('data-i18n-html'));
     });
 
-    // Update toggle button
-    const btn = document.getElementById('langToggle');
-    if (btn) {
-      btn.textContent = lang === 'en' ? 'ES' : 'EN';
-      btn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
-    }
+    // Update toggle buttons
+    ['langToggle', 'langToggleDesktop'].forEach((id) => {
+      const btn = document.getElementById(id);
+      if (btn) {
+        btn.textContent = lang === 'en' ? 'ES' : 'EN';
+        btn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+      }
+    });
   },
 
   toggle() {
