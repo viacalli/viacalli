@@ -13,24 +13,147 @@
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.page-header h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
-.page-header p { font-size: 1.05rem; color: var(--muted); max-width: 52ch; margin: 0 auto; line-height: 1.8; }
-.tours-list { padding: 2rem 3.5rem 6rem; display: flex; flex-direction: column; gap: 2rem; max-width: 980px; margin: 0 auto; }
-.tour-card { background: var(--white); border-radius: 24px; border: 1px solid rgba(175,164,206,0.2); overflow: hidden; transition: box-shadow 0.2s; }
-.tour-card:hover { box-shadow: 0 8px 40px rgba(175,164,206,0.18); }
-.tour-card-inner { padding: 2.8rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; }
-.tour-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(175,164,206,0.12); border: 1px solid rgba(175,164,206,0.3); border-radius: 999px; padding: 0.3rem 0.9rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lav-dark); margin-bottom: 1.2rem; }
-.tour-card h2 { font-family: var(--serif); font-size: 1.85rem; font-weight: 700; color: var(--ink); margin-bottom: 1rem; line-height: 1.15; }
-.tour-card > .tour-card-inner > .tour-card-left > p { font-size: 0.98rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.5rem; max-width: 56ch; }
-.tour-details { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
-.detail-item { display: flex; flex-direction: column; gap: 0.1rem; }
-.detail-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lav-dark); }
-.detail-val { font-size: 0.92rem; font-weight: 600; color: var(--ink); }
-.detail-note { font-size: 0.72rem; color: var(--muted); font-style: italic; }
-.tour-card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; min-width: 160px; }
-.tour-divider { height: 1px; background: rgba(175,164,206,0.15); margin: 0 2.8rem; }
-.tour-card-footer { padding: 1.2rem 2.8rem; display: flex; justify-content: space-between; align-items: center; background: rgba(175,164,206,0.04); }
-.tour-card-footer p { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+
+.page-header h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.page-header p {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 52ch;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ── TOUR CARDS ── */
+.tours-list {
+  padding: 2rem 3.5rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.tour-card {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid rgba(175,164,206,0.2);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.tour-card:hover {
+  box-shadow: 0 8px 40px rgba(175,164,206,0.18);
+}
+
+.tour-card-inner {
+  padding: 2.8rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.tour-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(175,164,206,0.12);
+  border: 1px solid rgba(175,164,206,0.3);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+  margin-bottom: 1.2rem;
+}
+
+.tour-card h2 {
+  font-family: var(--serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+
+.tour-card > .tour-card-inner > .tour-card-left > p {
+  font-size: 0.98rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  max-width: 56ch;
+}
+
+.tour-details {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.8rem;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.detail-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lav-dark);
+}
+
+.detail-val {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.detail-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.tour-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  min-width: 160px;
+}
+
+.tour-divider {
+  height: 1px;
+  background: rgba(175,164,206,0.15);
+  margin: 0 2.8rem;
+}
+
+.tour-card-footer {
+  padding: 1.2rem 2.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(175,164,206,0.04);
+}
+
+.tour-card-footer p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .tours-list { padding: 2rem 1.5rem 4rem; }
   .tour-card-inner { grid-template-columns: 1fr; }
@@ -78,12 +201,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">🫀 <span data-i18n="tour.frida.badge">Museum</span></div>
-        <h2 data-i18n="tour.frida.h2">Frida Kahlo Museum</h2>
-        <p data-i18n="tour.frida.desc">Far more than a conventional museum visit. This experience approaches Frida through the human stories behind the paintings and the atmosphere of the home she carefully preserved — a conversation-driven encounter with the life, contradictions, and enduring power of one of Mexico's most iconic figures.</p>
+        <h2>Frida Kahlo Museum</h2>
+        <p>Far more than a conventional museum visit. This experience approaches Frida through the human stories behind the paintings and the atmosphere of the home she carefully preserved — a conversation-driven encounter with the life, contradictions, and enduring power of one of Mexico's most iconic figures.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -103,7 +226,7 @@
     </div>
     <div class="tour-divider"></div>
     <div class="tour-card-footer">
-      <p data-i18n="tour.frida.footer">Ideal for art lovers, history enthusiasts, and anyone drawn to Frida's story.</p>
+      <p>Ideal for art lovers, history enthusiasts, and anyone drawn to Frida's story.</p>
       <a href="contact.html?tour=frida" class="btn btn-outline" style="font-size:0.8rem; padding:0.5rem 1.2rem;" data-i18n="label.inquire">Inquire</a>
     </div>
   </div>
@@ -112,13 +235,13 @@
   <div class="tour-card" id="bellasartes">
     <div class="tour-card-inner">
       <div class="tour-card-left">
-        <div class="tour-badge">🎨 <span data-i18n="tour.bellas.badge">Muralism</span></div>
-        <h2 data-i18n="tour.bellas.h2">Palace of Fine Arts</h2>
-        <p data-i18n="tour.bellas.desc">Begin at Mexico's most celebrated cultural venue and discover how Rivera, Siqueiros, Orozco, and Tamayo used its walls to express revolution, identity, and the future of a nation. A close reading of public art as a political and emotional act — all under one extraordinary roof.</p>
+        <div class="tour-badge">🎨 Muralism</div>
+        <h2>Palace of Fine Arts</h2>
+        <p>Begin at Mexico's most celebrated cultural venue and discover how Rivera, Siqueiros, Orozco, and Tamayo used its walls to express revolution, identity, and the future of a nation. A close reading of public art as a political and emotional act — all under one extraordinary roof.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -148,12 +271,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">🖼 <span data-i18n="tour.munal.badge">Art History</span></div>
-        <h2 data-i18n="tour.munal.h2">National Art Museum</h2>
-        <p data-i18n="tour.munal.desc">Inside one of the most elegant historic buildings in the city, this experience focuses not on dates and attributions, but on the stories and symbolism embedded in the collection. Watch Mexican art evolve alongside the country itself — from colonial influence to modernization and national identity.</p>
+        <h2>National Art Museum</h2>
+        <p>Inside one of the most elegant historic buildings in the city, this experience focuses not on dates and attributions, but on the stories and symbolism embedded in the collection. Watch Mexican art evolve alongside the country itself — from colonial influence to modernization and national identity.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -183,12 +306,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">☀️ <span data-i18n="tour.antro.badge">History</span></div>
-        <h2 data-i18n="tour.antro.h2">Anthropology Museum</h2>
-        <p data-i18n="tour.antro.desc">An intimate, passion-driven visit through the civilizations that shaped Mexico — from the Mexica and Maya to the complex arc of conquest, independence, and modern identity. We focus on the human stories behind the objects, the ideas that transformed a nation, and the living connections between ancient and contemporary Mexico.</p>
+        <h2>Anthropology Museum</h2>
+        <p>An intimate, passion-driven visit through the civilizations that shaped Mexico — from the Mexica and Maya to the complex arc of conquest, independence, and modern identity. We focus on the human stories behind the objects, the ideas that transformed a nation, and the living connections between ancient and contemporary Mexico.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -218,12 +341,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">🏠 <span data-i18n="tour.barragan.badge">Architecture</span></div>
-        <h2 data-i18n="tour.barragan.h2">Casa Ortega by Luis Barragán</h2>
-        <p data-i18n="tour.barragan.desc">Discover the quiet beauty and emotional depth of Casa Ortega — one of the lesser-known residential masterpieces connected to Barragán's vision. Through light, color, silence, and texture, this intimate experience explores architecture as contemplation, not spectacle. We'll discuss his influence on modern design and the cultural context of mid-century Mexico.</p>
+        <h2>Casa Ortega by Luis Barragán</h2>
+        <p>Discover the quiet beauty and emotional depth of Casa Ortega — one of the lesser-known residential masterpieces connected to Barragán's vision. Through light, color, silence, and texture, this intimate experience explores architecture as contemplation, not spectacle. We'll discuss his influence on modern design and the cultural context of mid-century Mexico.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.1.5h">1.5 hours</span>
+            <span class="detail-val">1.5 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -253,12 +376,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">🍽 <span data-i18n="tour.food.badge">Food & Culture</span></div>
-        <h2 data-i18n="tour.food.h2">Culinary Tour</h2>
-        <p data-i18n="tour.food.desc">Experience Mexico City through its flavors — from beloved local classics to hidden neighborhood gems. This isn't a list of stops; it's a guided conversation about how food reflects the city's history, identity, and creativity. Small groups, thoughtful tastings, and places most visitors would never find on their own.</p>
+        <h2>Culinary Tour</h2>
+        <p>Experience Mexico City through its flavors — from beloved local classics to hidden neighborhood gems. This isn't a list of stops; it's a guided conversation about how food reflects the city's history, identity, and creativity. Small groups, thoughtful tastings, and places most visitors would never find on their own.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -288,12 +411,12 @@
     <div class="tour-card-inner">
       <div class="tour-card-left">
         <div class="tour-badge">📷 <span data-i18n="tour.photo.badge">Photography</span></div>
-        <h2 data-i18n="tour.photo.h2">Photoshooting</h2>
-        <p data-i18n="tour.photo.desc">A relaxed, professionally guided session designed to feel natural, personal, and effortless. Together we'll explore carefully selected locations that capture the atmosphere and character of Mexico City — creating images that feel authentic rather than posed. Comfortable even for those with little experience in front of a camera. Includes edited high-resolution images.</p>
+        <h2>Photoshooting</h2>
+        <p>A relaxed, professionally guided session designed to feel natural, personal, and effortless. Together we'll explore carefully selected locations that capture the atmosphere and character of Mexico City — creating images that feel authentic rather than posed. Comfortable even for those with little experience in front of a camera. Includes edited high-resolution images.</p>
         <div class="tour-details">
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.duration">Duration</span>
-            <span class="detail-val" data-i18n="label.2h">2 hours</span>
+            <span class="detail-val">2 hours</span>
           </div>
           <div class="detail-item">
             <span class="detail-label" data-i18n="label.groupsize">Group size</span>
@@ -325,6 +448,11 @@
   <p><a href="mailto:hello@viacalli.com">hello@viacalli.com</a></p>
 </footer>
 
+
+
+
+
+
 <script src="lang.js"></script>
 <script>
 (function() {
@@ -332,12 +460,30 @@
   var dialog    = document.getElementById('mobileMenuDialog');
   var closeBtn  = document.getElementById('dialogClose');
   if (!hamburger || !dialog) return;
-  hamburger.addEventListener('click', function() { dialog.showModal(); document.body.style.overflow = 'hidden'; });
-  function closeDialog() { dialog.close(); document.body.style.overflow = ''; }
+
+  hamburger.addEventListener('click', function() {
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeDialog() {
+    dialog.close();
+    document.body.style.overflow = '';
+  }
+
   if (closeBtn) closeBtn.addEventListener('click', closeDialog);
-  dialog.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', closeDialog); });
-  dialog.addEventListener('click', function(e) { if (e.target === dialog) closeDialog(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { document.body.style.overflow = ''; } });
+
+  dialog.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeDialog);
+  });
+
+  dialog.addEventListener('click', function(e) {
+    if (e.target === dialog) closeDialog();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { document.body.style.overflow = ''; }
+  });
 })();
 </script>
 </body>
